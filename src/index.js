@@ -1,6 +1,8 @@
 import sliderMain from "./modules/slider";
 import { heroesModel } from "./modules/heroesModel";
+import { moviesSelector } from "./modules/moviesSelector";
 
 sliderMain();
 
-window.mainPage = new heroesModel("./db/dbHeroes.json");
+window.mainModel = new heroesModel("./db/dbHeroes.json");
+//controls();

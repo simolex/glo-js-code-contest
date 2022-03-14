@@ -1,3 +1,4 @@
+import { moviesSelector } from "./moviesSelector";
 export class heroesModel {
   constructor(dbPath) {
     this.filterGroups = {};
@@ -23,6 +24,7 @@ export class heroesModel {
           // }
         }
       });
+      moviesSelector(this.filterGroups.movies);
     });
     console.log(this.filterGroups);
   }
@@ -41,9 +43,8 @@ export class heroesModel {
   }
   selectHeroes(movieId) {
     const movieName = this.filterGroups.movies[movieId];
-    this._getData().then((heroes) => {
-      const list = heroes.filter((theHero) => theHero.movies.includes(movieName));
-      console.log(list);
+    return this._getData().then((heroes) => {
+      return heroes.filter((theHero) => theHero.movies && theHero.movies.includes(movieName));
     });
   }
 }
