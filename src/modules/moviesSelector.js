@@ -21,6 +21,8 @@ export const moviesSelector = (movies) => {
       mainModel.selectHeroes(id).then((heroes) => {
         heroesView(heroes);
       });
+    } else {
+      heroesView([]);
     }
   });
 };

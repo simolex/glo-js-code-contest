@@ -1,5 +1,11 @@
+import Swiper, { Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+
 const slider = () => {
-  console.log("Код слайдера запущен");
+  const swiper = new Swiper("", {
+    modules: [Navigation],
+  });
 };
 
 export default slider;
