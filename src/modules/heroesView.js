@@ -1,8 +1,11 @@
 export const heroesView = (heroes) => {
+  const swiper = document.querySelector(".swiper");
   const cardWrapper = document.querySelector(".cards__wrapper");
   cardWrapper.innerHTML = "";
   heroes.forEach((hero) => {
-    const card = document.createElement("card");
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.classList.add("swiper-slide");
 
     card.innerHTML = `
     <div class="card__photo">
@@ -16,4 +19,6 @@ export const heroesView = (heroes) => {
     `;
     cardWrapper.append(card);
   });
+  swiper.swiper.updateSlides();
+  swiper.swiper.update();
 };

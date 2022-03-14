@@ -1,8 +1,20 @@
-import sliderMain from "./modules/slider";
 import { heroesModel } from "./modules/heroesModel";
-import { moviesSelector } from "./modules/moviesSelector";
+import Swiper, { Navigation } from "swiper";
 
-sliderMain();
+const swiper = new Swiper(".swiper", {
+  modules: [Navigation],
+  //loop: true,
+  slidesPerView: 3,
+  spaceBetween: 30,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  //centeredSlides: true,
+  //centeredSlidesBounds: true,
+});
+
+//sliderMain();
 
 window.mainModel = new heroesModel("./db/dbHeroes.json");
 //controls();

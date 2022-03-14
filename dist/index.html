@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WebPack</title>
+    <link rel="stylesheet" href="css/swiper.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script defer src="js/main.js"></script>
   </head>
@@ -15,15 +16,11 @@
         <div class="heroes__menu">
           <select name="heroes_movies" id="heroes_movies" class="heroes__movies"></select>
         </div>
-        <div class="cards heroes__cards">
-          <div class="cards__wrapper">
+        <div class="cards heroes__cards swiper">
+          <div class="cards__wrapper swiper-wrapper">
             <div class="card">
               <div class="card__photo">
-                <img
-                  src="./db/dbimage/97d1d9f934a350cee765c5ac1a466605.jpg"
-                  alt=""
-                  class="card__image"
-                />
+                <img src="./db/dbimage/97d1d9f934a350cee765c5ac1a466605.jpg" alt="" class="card__image" />
               </div>
               <div class="card__content"></div>
             </div>
@@ -40,6 +37,9 @@
               <div class="card__content"></div>
             </div>
           </div>
+          <button class="swiper-button-prev">P</button>
+
+          <button class="swiper-button-next">N</button>
         </div>
       </div>
     </section>
