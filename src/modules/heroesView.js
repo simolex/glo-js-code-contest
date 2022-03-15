@@ -1,4 +1,5 @@
 import { infoView } from "./infoView";
+
 export const heroesView = (heroes) => {
   const swiper = document.querySelector(".swiper");
   const cardWrapper = document.querySelector(".cards__wrapper");
@@ -31,15 +32,8 @@ export const heroesView = (heroes) => {
     photo: "./img/avengers-logo.png",
   });
 
-  swiper.swiper.updateSlides();
   swiper.swiper.update();
-  mainModel
-    .getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName)
-    .then((heroes) => {
-      infoView(heroes);
-    });
-
-  // swiper.swiper.off("slideChangeTransitionEnd", onSlideChange);
-
-  // swiper.
+  mainModel.getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName).then((heroes) => {
+    infoView(heroes);
+  });
 };

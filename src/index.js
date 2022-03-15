@@ -12,20 +12,12 @@ const swiper = new Swiper(".swiper", {
     prevEl: ".heroes__button--prev",
     disabledClass: "heroes__button--disabled",
   },
-
-  //centeredSlides: true,
-  //centeredSlidesBounds: true,
 });
+
 const onSlideChange = function () {
-  mainModel
-    .getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName)
-    .then((heroes) => {
-      infoView(heroes);
-    });
+  mainModel.getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName).then((heroes) => {
+    infoView(heroes);
+  });
 };
 swiper.on("slideChangeTransitionEnd", onSlideChange);
-
-//sliderMain();
-
 window.mainModel = new heroesModel("./db/dbHeroes.json");
-//controls();
