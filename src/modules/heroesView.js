@@ -30,7 +30,7 @@ export const heroesView = (heroes) => {
 
   createCard({
     name: "",
-    photo: "./img/klipartz.com.png",
+    photo: "./img/avengers-logo.png",
   });
 
   swiper.swiper.updateSlides();
