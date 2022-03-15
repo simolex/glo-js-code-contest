@@ -1,3 +1,4 @@
+import { infoView } from "./infoView";
 export const heroesView = (heroes) => {
   const swiper = document.querySelector(".swiper");
   const cardWrapper = document.querySelector(".cards__wrapper");
@@ -7,7 +8,6 @@ export const heroesView = (heroes) => {
     card.classList.add("card");
     card.classList.add("swiper-slide");
     card.dataset.heroesName = heroesItem.name;
-
     card.innerHTML = `
     <div class="card__photo">
       <img
@@ -16,9 +16,7 @@ export const heroesView = (heroes) => {
         class="card__image"
       />
     </div>
-    <div class="card__content"></div>
     `;
-
     cardWrapper.append(card);
   };
 
@@ -38,7 +36,7 @@ export const heroesView = (heroes) => {
   mainModel
     .getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName)
     .then((heroes) => {
-      console.log(1, heroes);
+      infoView(heroes);
     });
 
   // swiper.swiper.off("slideChangeTransitionEnd", onSlideChange);
