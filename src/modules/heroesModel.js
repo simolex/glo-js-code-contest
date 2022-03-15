@@ -26,7 +26,6 @@ export class heroesModel {
       });
       moviesSelector(this.filterGroups.movies);
     });
-    console.log(this.filterGroups);
   }
   _getData() {
     return fetch(this._dbPath)
@@ -41,10 +40,16 @@ export class heroesModel {
         console.log(`${urlHref} - ${err.message}`);
       });
   }
+
   selectHeroes(movieId) {
     const movieName = this.filterGroups.movies[movieId];
     return this._getData().then((heroes) => {
       return heroes.filter((theHero) => theHero.movies && theHero.movies.includes(movieName));
+    });
+  }
+  getHeroes(heroesName) {
+    return this._getData().then((heroes) => {
+      return heroes.find((theHero) => theHero.name == heroesName);
     });
   }
 }

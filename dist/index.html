@@ -4,44 +4,43 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WebPack</title>
+    <title>Cinema Heroes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/swiper.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script defer src="js/main.js"></script>
   </head>
   <body>
-    <section class="heroes">
-      <h1 class="heroes__title">Cinema Heroes</h1>
-      <div class="heroes__wrapper">
-        <div class="heroes__menu">
-          <select name="heroes_movies" id="heroes_movies" class="heroes__movies"></select>
-        </div>
-        <div class="cards heroes__cards swiper">
-          <div class="cards__wrapper swiper-wrapper">
-            <div class="card">
-              <div class="card__photo">
-                <img src="./db/dbimage/97d1d9f934a350cee765c5ac1a466605.jpg" alt="" class="card__image" />
+    <div class="container">
+      <section class="heroes">
+        <h1 class="heroes__title">Cinema Heroes</h1>
+        <div class="heroes__wrapper">
+          <div class="heroes__cards-wrap">
+            <div class="cards heroes__cards swiper">
+              <div class="cards__wrapper swiper-wrapper">
+                <!-- /.card -->
               </div>
-              <div class="card__content"></div>
+              <div class="heroes__info-wrap">
+                <div class="heroes__info">dfsf sdfsdfs</div>
+              </div>
             </div>
-            <div class="card">
-              <div class="card__photo"></div>
-              <div class="card__content"></div>
-            </div>
-            <div class="card">
-              <div class="card__photo"></div>
-              <div class="card__content"></div>
-            </div>
-            <div class="card">
-              <div class="card__photo"></div>
-              <div class="card__content"></div>
+            <div class="heroes__button-group">
+              <button class="heroes__button heroes__button--prev">P</button>
+              <button class="heroes__button heroes__button--next">N</button>
             </div>
           </div>
-          <button class="swiper-button-prev">P</button>
-
-          <button class="swiper-button-next">N</button>
+          <div class="heroes__menu-wrap">
+            <div class="heroes__menu">
+              <ul name="heroes_movies" id="heroes_movies" class="heroes__movies"></ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </body>
 </html>
