@@ -1,4 +1,4 @@
-import { infoView } from "./infoView";
+import { infoRender } from "./infoRender";
 
 export const heroesView = (heroes) => {
   const swiper = document.querySelector(".swiper");
@@ -27,13 +27,17 @@ export const heroesView = (heroes) => {
     createCard(hero);
   });
 
+  //createLastCard
   createCard({
     name: "",
     photo: "./img/avengers-logo.png",
   });
 
   swiper.swiper.update();
-  mainModel.getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName).then((heroes) => {
-    infoView(heroes);
-  });
+
+  mainModel
+    .getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName)
+    .then((heroes) => {
+      infoRender(heroes);
+    });
 };

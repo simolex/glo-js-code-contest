@@ -8,7 +8,7 @@
 
 body {
   background-color: #011627;
-  color: #89a4bb;
+  color: rgb(137, 164, 187);
   font-family: "Montserrat", sans-serif;
   letter-spacing: -0.2px;
 }
@@ -47,10 +47,10 @@ img {
   font-size: 0.65rem;
   font-weight: 700;
   color: #384e61;
-  text-shadow: 1px 1px 0 #547592;
+  text-shadow: 0.5px 0.5px 0 #547592;
   background-color: #02233e;
   text-transform: uppercase;
-  border-radius: 15px 0 0 15px;
+  border-radius: 5px 0 0 25px;
   background-color: #02233e;
   z-index: -2;
 }
