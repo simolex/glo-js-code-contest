@@ -1,4 +1,5 @@
-import { infoView } from "./infoView";
+import { infoRender } from "./infoRender";
+
 export const heroesView = (heroes) => {
   const swiper = document.querySelector(".swiper");
   const cardWrapper = document.querySelector(".cards__wrapper");
@@ -7,16 +8,19 @@ export const heroesView = (heroes) => {
     const card = document.createElement("div");
     card.classList.add("card");
     card.classList.add("swiper-slide");
+
     card.dataset.heroesName = heroesItem.name;
     card.innerHTML = `
     <div class="card__photo">
       <img
-        src="${heroesItem.photo}"
+        data-src="${heroesItem.photo}"
+        src="./img/avengers-logo.png"
         alt=""
-        class="card__image"
+        class="swiper-lazy card__image"
       />
     </div>
     `;
+    //<div class="swiper-lazy-preloader"></div>
     cardWrapper.append(card);
   };
 
@@ -26,20 +30,14 @@ export const heroesView = (heroes) => {
     createCard(hero);
   });
 
+  //createLastPreviewCard
   createCard({
     name: "",
     photo: "./img/avengers-logo.png",
   });
 
-  swiper.swiper.updateSlides();
   swiper.swiper.update();
-  mainModel
-    .getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName)
-    .then((heroes) => {
-      infoView(heroes);
-    });
-
-  // swiper.swiper.off("slideChangeTransitionEnd", onSlideChange);
-
-  // swiper.
+  const heroesName = cardWrapper.querySelector(".swiper-slide-active").dataset.heroesName;
+  infoRender(heroes.find((theHero) => theHero.name == heroesName));
+  swiper.swiper.lazy.load();
 };

@@ -7,11 +7,10 @@
     <title>Cinema Heroes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/swiper.min.css" />
+    <link rel="stylesheet" href="css/navigation.min.css" />
+    <link rel="stylesheet" href="css/lazy.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script defer src="js/main.js"></script>
   </head>
@@ -20,9 +19,14 @@
       <section class="heroes">
         <h1 class="heroes__title">Cinema Heroes</h1>
         <div class="heroes__wrapper">
-          <div class="heroes__cards-wrap">
+          <div class="heroes__cards-wrap wrapper-title">
             <div class="cards heroes__cards swiper">
               <div class="cards__wrapper swiper-wrapper">
+                <div class="card swiper-slide" data-heroes-name="">
+                  <div class="card__photo">
+                    <img src="./img/avengers-logo.png" alt="" class="card__image" />
+                  </div>
+                </div>
                 <!-- /.card -->
               </div>
               <div class="heroes__info-wrap">
@@ -46,12 +50,12 @@
               <button class="heroes__button heroes__button--next">
                 <svg class="heroes__arrow">
                   <title>Icon: Prev</title>
-                  <use xlink:href="img/common.svg#arrow" transform="rotate(-180 9 9)"></use>
+                  <use xlink:href="img/common.svg#arrow" transform="rotate(-180 16 16)"></use>
                 </svg>
               </button>
             </div>
           </div>
-          <div class="heroes__menu-wrap">
+          <div class="heroes__menu-wrap wrapper-title">
             <div class="heroes__menu">
               <ul name="heroes_movies" id="heroes_movies" class="heroes__movies"></ul>
             </div>

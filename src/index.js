@@ -1,10 +1,17 @@
 import { heroesModel } from "./modules/heroesModel";
-import Swiper, { Navigation } from "swiper";
-import { infoView } from "./modules/infoView";
+import Swiper, { Navigation, Lazy } from "swiper";
+import { infoRender } from "./modules/infoRender";
+import { moviesSelector } from "./modules/moviesSelector";
+
+let filterGroups = {};
 
 const swiper = new Swiper(".swiper", {
-  modules: [Navigation],
-  //loop: true,
+  modules: [Navigation, Lazy],
+  //preloadImages: false,
+  lazy: {
+    loadPrevNextAmount: 2,
+  },
+
   slidesPerView: 2,
   spaceBetween: 30,
   navigation: {
@@ -12,20 +19,36 @@ const swiper = new Swiper(".swiper", {
     prevEl: ".heroes__button--prev",
     disabledClass: "heroes__button--disabled",
   },
-
-  //centeredSlides: true,
-  //centeredSlidesBounds: true,
 });
+
 const onSlideChange = function () {
-  mainModel
-    .getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName)
-    .then((heroes) => {
-      infoView(heroes);
-    });
+  mainModel.getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName).then((heroes) => {
+    infoRender(heroes);
+  });
 };
+
 swiper.on("slideChangeTransitionEnd", onSlideChange);
-
-//sliderMain();
-
 window.mainModel = new heroesModel("./db/dbHeroes.json");
-//controls();
+
+mainModel.getData().then((data) => {
+  data.forEach((heroes) => {
+    for (let metric in heroes) {
+      if (!filterGroups[metric] && metric === "movies") {
+        filterGroups[metric] = [];
+      }
+      if (metric === "movies") {
+        heroes[metric] &&
+          heroes[metric].forEach((filmName) => {
+            if (!filterGroups[metric].includes(filmName)) {
+              filterGroups[metric].push(filmName);
+            }
+          });
+      } //else {
+      //   if (!filterGroups[metric].includes(heroes[metric])) {
+      //     filterGroups[metric].push(heroes[metric]);
+      //   }
+      // }
+    }
+  });
+  moviesSelector(filterGroups.movies.sort());
+});

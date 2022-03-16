@@ -1,4 +1,4 @@
-export const infoView = (heroMetrics) => {
+export const infoRender = (heroMetrics) => {
   const infoWrapper = document.querySelector(".info");
 
   const createMetric = ({ label, content }) => {
@@ -22,6 +22,4 @@ export const infoView = (heroMetrics) => {
       });
     }
   }
-
-  //console.log(heroMetrics);
 };

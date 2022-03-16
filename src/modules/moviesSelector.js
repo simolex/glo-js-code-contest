@@ -1,7 +1,6 @@
 import { heroesView } from "./heroesView";
-export const moviesSelector = (movies) => {
+export const moviesSelector = (moviesList) => {
   const heroesMovies = document.getElementById("heroes_movies");
-  let activeMovieOption;
 
   const insertOption = (nameOpt, valueOpt) => {
     const option = document.createElement("li");
@@ -11,9 +10,6 @@ export const moviesSelector = (movies) => {
     option.textContent = nameOpt;
     heroesMovies.append(option);
   };
-  movies.forEach((movie, index) => {
-    insertOption(movie, index);
-  });
 
   const markingMovieOption = (markerClass, elem = {}) => {
     heroesMovieOptions.forEach((item) => {
@@ -25,20 +21,25 @@ export const moviesSelector = (movies) => {
     });
   };
 
-  const heroesMovieOptions = document.querySelectorAll(".heroes__movie-item");
+  moviesList.forEach((movie, index) => {
+    insertOption(movie, index);
+  });
 
-  mainModel.selectHeroes(0).then((heroes) => {
+  mainModel.selectHeroes(moviesList[0]).then((heroes) => {
     heroesView(heroes);
   });
 
-  markingMovieOption("heroes__movie-item--active", document.querySelector(`[data-movies="0"]`));
+  const firstMovie = document.querySelector(`[data-movies="0"]`);
+  const heroesMovieOptions = document.querySelectorAll(".heroes__movie-item");
+  markingMovieOption("heroes__movie-item--active", firstMovie);
 
   heroesMovies.addEventListener("click", (e) => {
     const selectedMovie = e.target.closest(".heroes__movie-item");
     const id = selectedMovie.dataset.movies;
-    mainModel.selectHeroes(id).then((heroes) => {
-      heroesView(heroes);
+
+    mainModel.selectHeroes(moviesList[id]).then((heroes) => {
       markingMovieOption("heroes__movie-item--active", selectedMovie);
+      heroesView(heroes);
     });
   });
 
