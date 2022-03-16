@@ -47,5 +47,5 @@ mainModel.getData().then((data) => {
       // }
     }
   });
-  moviesSelector(filterGroups.movies);
+  moviesSelector(filterGroups.movies.sort());
 });
