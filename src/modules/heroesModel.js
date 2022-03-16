@@ -3,6 +3,8 @@ export class heroesModel {
   constructor(dbPath) {
     this.filterGroups = {};
     this._dbPath = dbPath;
+    this._moviesTitle = document.querySelector(".heroes__title");
+    console.log(this._moviesTitle);
     this._getData().then((data) => {
       data.forEach((heroes) => {
         for (let metric in heroes) {
@@ -41,8 +43,13 @@ export class heroesModel {
       });
   }
 
+  setTitle(name) {
+    this._moviesTitle.textContent = name;
+  }
+
   selectHeroes(movieId) {
     const movieName = this.filterGroups.movies[movieId];
+    this.setTitle(movieName);
     return this._getData().then((heroes) => {
       return heroes.filter((theHero) => theHero.movies && theHero.movies.includes(movieName));
     });
