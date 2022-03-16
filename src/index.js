@@ -1,12 +1,17 @@
 import { heroesModel } from "./modules/heroesModel";
-import Swiper, { Navigation } from "swiper";
+import Swiper, { Navigation, Lazy } from "swiper";
 import { infoRender } from "./modules/infoRender";
 import { moviesSelector } from "./modules/moviesSelector";
 
 let filterGroups = {};
 
 const swiper = new Swiper(".swiper", {
-  modules: [Navigation],
+  modules: [Navigation, Lazy],
+  //preloadImages: false,
+  lazy: {
+    loadPrevNextAmount: 2,
+  },
+
   slidesPerView: 2,
   spaceBetween: 30,
   navigation: {
@@ -17,11 +22,9 @@ const swiper = new Swiper(".swiper", {
 });
 
 const onSlideChange = function () {
-  mainModel
-    .getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName)
-    .then((heroes) => {
-      infoRender(heroes);
-    });
+  mainModel.getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName).then((heroes) => {
+    infoRender(heroes);
+  });
 };
 
 swiper.on("slideChangeTransitionEnd", onSlideChange);
