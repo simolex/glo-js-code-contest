@@ -43,7 +43,7 @@ img {
   left: 0;
   bottom: 0;
   height: 30px;
-  width: 100px;
+  width: 120px;
   font-size: 0.65rem;
   font-weight: 700;
   color: #384e61;
@@ -59,7 +59,7 @@ img {
   content: "";
   position: absolute;
   display: inline-block;
-  left: 80px;
+  left: 90px;
   bottom: 0;
   height: 30px;
   width: calc(100% - 90px);

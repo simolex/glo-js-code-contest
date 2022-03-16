@@ -27,7 +27,7 @@ export const heroesView = (heroes) => {
     createCard(hero);
   });
 
-  //createLastCard
+  //createLastPreviewCard
   createCard({
     name: "",
     photo: "./img/avengers-logo.png",
@@ -35,9 +35,6 @@ export const heroesView = (heroes) => {
 
   swiper.swiper.update();
 
-  mainModel
-    .getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName)
-    .then((heroes) => {
-      infoRender(heroes);
-    });
+  const heroesName = cardWrapper.querySelector(".swiper-slide-active").dataset.heroesName;
+  infoRender(heroes.find((theHero) => theHero.name == heroesName));
 };

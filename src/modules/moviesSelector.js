@@ -11,10 +11,6 @@ export const moviesSelector = (moviesList) => {
     heroesMovies.append(option);
   };
 
-  moviesList.forEach((movie, index) => {
-    insertOption(movie, index);
-  });
-
   const markingMovieOption = (markerClass, elem = {}) => {
     heroesMovieOptions.forEach((item) => {
       if (elem !== {} && item === elem) {
@@ -25,12 +21,16 @@ export const moviesSelector = (moviesList) => {
     });
   };
 
-  const heroesMovieOptions = document.querySelectorAll(".heroes__movie-item");
+  moviesList.forEach((movie, index) => {
+    insertOption(movie, index);
+  });
 
   mainModel.selectHeroes(moviesList[0]).then((heroes) => {
     heroesView(heroes);
   });
+
   const firstMovie = document.querySelector(`[data-movies="0"]`);
+  const heroesMovieOptions = document.querySelectorAll(".heroes__movie-item");
   markingMovieOption("heroes__movie-item--active", firstMovie);
 
   heroesMovies.addEventListener("click", (e) => {
@@ -38,8 +38,8 @@ export const moviesSelector = (moviesList) => {
     const id = selectedMovie.dataset.movies;
 
     mainModel.selectHeroes(moviesList[id]).then((heroes) => {
-      heroesView(heroes);
       markingMovieOption("heroes__movie-item--active", selectedMovie);
+      heroesView(heroes);
     });
   });
 
