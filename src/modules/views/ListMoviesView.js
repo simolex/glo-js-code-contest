@@ -1,5 +1,5 @@
 import { EventEmitter } from "../EventEmitter";
-import { heroesView } from "../heroesView";
+//import { heroesView } from "../heroesView";
 
 export class ListMoviesView extends EventEmitter {
   constructor(model, elements) {
@@ -10,8 +10,8 @@ export class ListMoviesView extends EventEmitter {
 
     // attach model listeners
     // model
-    //   .subscribe("rowAdded", () => this.rebuildTable())
-    //   .subscribe("rowRemoved", () => this.rebuildTable());
+    //   .subscribe("rowAdded", () => this.rebuildList())
+    //   .subscribe("rowRemoved", () => this.rebuildList());
 
     // elements.addButton.addEventListener("click", () => this.emit("addButtonClicked"));
     // attach listeners to HTML controls
@@ -22,7 +22,8 @@ export class ListMoviesView extends EventEmitter {
       mainModel.selectHeroes(nameMovie).then((heroes) => {
         this._setActiveMovie(selectedMovie);
         this._setTitle(nameMovie);
-        heroesView(heroes);
+        modelHeroes.setHeroesList(heroes);
+        //heroesView(heroes);
       });
     });
 
@@ -63,16 +64,17 @@ export class ListMoviesView extends EventEmitter {
   }
 
   show() {
-    this.rebuildTable();
+    this.rebuildList();
     this._setActiveMovie(this._moviesElements[0]);
     const nameMovie = this._model.getMovieName(0);
     this._setTitle(nameMovie);
     mainModel.selectHeroes(nameMovie).then((heroes) => {
-      heroesView(heroes);
+      modelHeroes.setHeroesList(heroes);
+      //heroesView(heroes);
     });
   }
 
-  rebuildTable() {
+  rebuildList() {
     this._elements.heroesMovies.innerHTML = "";
 
     this._model.getMovies().forEach((movie, index) => {

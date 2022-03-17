@@ -8,32 +8,36 @@ import { ListMoviesController } from "./modules/controllers/ListMoviesController
 import { ListMoviesModel } from "./modules/models/ListMoviesModel";
 import { ListMoviesView } from "./modules/views/ListMoviesView";
 //--------------------
+import { HeroesListController } from "./modules/controllers/HeroesListController";
+import { HeroesListModel } from "./modules/models/HeroesListModel";
+import { HeroesListView } from "./modules/views/HeroesListView";
+//--------------------
 
 let filterGroups = {};
 
-const swiper = new Swiper(".swiper", {
-  modules: [Navigation, Lazy],
-  //preloadImages: false,
-  lazy: {
-    loadPrevNextAmount: 2,
-  },
+// const swiper = new Swiper(".swiper", {
+//   modules: [Navigation, Lazy],
+//   //preloadImages: false,
+//   lazy: {
+//     loadPrevNextAmount: 2,
+//   },
 
-  slidesPerView: 2,
-  spaceBetween: 30,
-  navigation: {
-    nextEl: ".heroes__button--next",
-    prevEl: ".heroes__button--prev",
-    disabledClass: "heroes__button--disabled",
-  },
-});
+//   slidesPerView: 2,
+//   spaceBetween: 30,
+//   navigation: {
+//     nextEl: ".heroes__button--next",
+//     prevEl: ".heroes__button--prev",
+//     disabledClass: "heroes__button--disabled",
+//   },
+// });
 
-const onSlideChange = function () {
-  mainModel.getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName).then((heroes) => {
-    infoRender(heroes);
-  });
-};
+// const onSlideChange = function () {
+//   mainModel.getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName).then((heroes) => {
+//     infoRender(heroes);
+//   });
+// };
 
-swiper.on("slideChangeTransitionEnd", onSlideChange);
+//swiper.on("slideChangeTransitionEnd", onSlideChange);
 window.mainModel = new heroesModel("./db/dbHeroes.json");
 
 mainModel.getData().then((data) => {
@@ -57,13 +61,40 @@ mainModel.getData().then((data) => {
     }
   });
 
-  const model = new ListMoviesModel(filterGroups.movies.sort());
-  const view = new ListMoviesView(model, {
+  const modelMovies = new ListMoviesModel(filterGroups.movies.sort());
+  const viewMovies = new ListMoviesView(modelMovies, {
     heroesMovies: document.getElementById("heroes_movies"),
     moviesTitle: document.querySelector(".heroes__title"),
     classHighlight: "heroes__movie-item--selected",
     classActive: "heroes__movie-item--active",
   });
-  const controller = new ListMoviesController(model, view);
-  view.show();
+  const controllerMovies = new ListMoviesController(modelMovies, viewMovies);
+  viewMovies.show();
 });
+
+const modelHeroes = new HeroesListModel();
+window.modelHeroes = modelHeroes;
+const viewHeroes = new HeroesListView(modelHeroes, {
+  cardWrapper: document.querySelector(".cards__wrapper"),
+  swiper: new Swiper(".swiper", {
+    modules: [Navigation, Lazy],
+    //preloadImages: false,
+    lazy: {
+      loadPrevNextAmount: 2,
+    },
+
+    slidesPerView: 2,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: ".heroes__button--next",
+      prevEl: ".heroes__button--prev",
+      disabledClass: "heroes__button--disabled",
+    },
+  }),
+  // heroesMovies: document.getElementById("heroes_movies"),
+  // moviesTitle: document.querySelector(".heroes__title"),
+  // classHighlight: "heroes__movie-item--selected",
+  // classActive: "heroes__movie-item--active",
+});
+const controllerMovies = new HeroesListController(modelHeroes, viewHeroes);
+//viewHeroes.show();
