@@ -3,6 +3,12 @@ import Swiper, { Navigation, Lazy } from "swiper";
 import { infoRender } from "./modules/infoRender";
 import { moviesSelector } from "./modules/moviesSelector";
 
+//--------------------
+import { ListMoviesController } from "./modules/controllers/ListMoviesController";
+import { ListMoviesModel } from "./modules/models/ListMoviesModel";
+import { ListMoviesView } from "./modules/views/ListMoviesView";
+//--------------------
+
 let filterGroups = {};
 
 const swiper = new Swiper(".swiper", {
@@ -22,9 +28,11 @@ const swiper = new Swiper(".swiper", {
 });
 
 const onSlideChange = function () {
-  mainModel.getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName).then((heroes) => {
-    infoRender(heroes);
-  });
+  mainModel
+    .getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName)
+    .then((heroes) => {
+      infoRender(heroes);
+    });
 };
 
 swiper.on("slideChangeTransitionEnd", onSlideChange);
@@ -50,5 +58,18 @@ mainModel.getData().then((data) => {
       // }
     }
   });
-  moviesSelector(filterGroups.movies.sort());
+
+  const model = new ListMoviesModel(filterGroups.movies.sort());
+  const view = new ListMoviesView(model, {
+    heroesMovies: document.getElementById("heroes_movies"),
+    classHighlight: "heroes__movie-item--selected",
+    classActive: "heroes__movie-item--active",
+    // typeEquipments: document.getElementById("unit-type"),
+    // tableBody: document.querySelector(".main__table tbody"),
+    // addButton: document.getElementById("add-equipment"),
+  });
+  const controller = new ListMoviesController(model, view);
+  view.show();
+
+  //moviesSelector(filterGroups.movies.sort());
 });
