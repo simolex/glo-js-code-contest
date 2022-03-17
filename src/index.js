@@ -64,12 +64,7 @@ mainModel.getData().then((data) => {
     heroesMovies: document.getElementById("heroes_movies"),
     classHighlight: "heroes__movie-item--selected",
     classActive: "heroes__movie-item--active",
-    // typeEquipments: document.getElementById("unit-type"),
-    // tableBody: document.querySelector(".main__table tbody"),
-    // addButton: document.getElementById("add-equipment"),
   });
   const controller = new ListMoviesController(model, view);
   view.show();
-
-  //moviesSelector(filterGroups.movies.sort());
 });
