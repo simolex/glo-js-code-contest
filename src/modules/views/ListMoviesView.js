@@ -8,13 +8,6 @@ export class ListMoviesView extends EventEmitter {
     this._elements = elements;
     this._moviesElements = [];
 
-    // attach model listeners
-    // model
-    //   .subscribe("rowAdded", () => this.rebuildList())
-    //   .subscribe("rowRemoved", () => this.rebuildList());
-
-    // elements.addButton.addEventListener("click", () => this.emit("addButtonClicked"));
-    // attach listeners to HTML controls
     this._elements.heroesMovies.addEventListener("click", (e) => {
       const selectedMovie = e.target.closest(".heroes__movie-item");
       const id = selectedMovie.dataset.movies;
@@ -23,8 +16,6 @@ export class ListMoviesView extends EventEmitter {
         this._setActiveMovie(selectedMovie);
         this._setTitle(nameMovie);
         this._model.emit("movieSelected", heroes);
-        //modelHeroes.setHeroesList(heroes);
-        //heroesView(heroes);
       });
     });
 
@@ -70,9 +61,7 @@ export class ListMoviesView extends EventEmitter {
     const nameMovie = this._model.getMovieName(0);
     this._setTitle(nameMovie);
     mainModel.selectHeroes(nameMovie).then((heroes) => {
-      //modelHeroes.setHeroesList(heroes);
       this._model.emit("movieSelected", heroes);
-      //heroesView(heroes);
     });
   }
 
