@@ -69,32 +69,29 @@ mainModel.getData().then((data) => {
     classActive: "heroes__movie-item--active",
   });
   const controllerMovies = new ListMoviesController(modelMovies, viewMovies);
+  //-------------------
+  const modelHeroes = new HeroesListModel();
+  //window.modelHeroes = modelHeroes;
+  const viewHeroes = new HeroesListView(modelHeroes, {
+    cardWrapper: document.querySelector(".cards__wrapper"),
+    swiper: new Swiper(".swiper", {
+      modules: [Navigation, Lazy],
+      //preloadImages: false,
+      lazy: {
+        loadPrevNextAmount: 2,
+      },
+
+      slidesPerView: 2,
+      spaceBetween: 30,
+      navigation: {
+        nextEl: ".heroes__button--next",
+        prevEl: ".heroes__button--prev",
+        disabledClass: "heroes__button--disabled",
+      },
+    }),
+  });
+  const controllerHeroes = new HeroesListController(modelHeroes, viewHeroes);
+  modelMovies.subscribe("movieSelected", (heroes) => modelHeroes.setHeroesList(heroes));
+
   viewMovies.show();
 });
-
-const modelHeroes = new HeroesListModel();
-window.modelHeroes = modelHeroes;
-const viewHeroes = new HeroesListView(modelHeroes, {
-  cardWrapper: document.querySelector(".cards__wrapper"),
-  swiper: new Swiper(".swiper", {
-    modules: [Navigation, Lazy],
-    //preloadImages: false,
-    lazy: {
-      loadPrevNextAmount: 2,
-    },
-
-    slidesPerView: 2,
-    spaceBetween: 30,
-    navigation: {
-      nextEl: ".heroes__button--next",
-      prevEl: ".heroes__button--prev",
-      disabledClass: "heroes__button--disabled",
-    },
-  }),
-  // heroesMovies: document.getElementById("heroes_movies"),
-  // moviesTitle: document.querySelector(".heroes__title"),
-  // classHighlight: "heroes__movie-item--selected",
-  // classActive: "heroes__movie-item--active",
-});
-const controllerMovies = new HeroesListController(modelHeroes, viewHeroes);
-//viewHeroes.show();

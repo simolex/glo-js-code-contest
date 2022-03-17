@@ -22,7 +22,8 @@ export class ListMoviesView extends EventEmitter {
       mainModel.selectHeroes(nameMovie).then((heroes) => {
         this._setActiveMovie(selectedMovie);
         this._setTitle(nameMovie);
-        modelHeroes.setHeroesList(heroes);
+        this._model.emit("movieSelected", heroes);
+        //modelHeroes.setHeroesList(heroes);
         //heroesView(heroes);
       });
     });
@@ -69,7 +70,8 @@ export class ListMoviesView extends EventEmitter {
     const nameMovie = this._model.getMovieName(0);
     this._setTitle(nameMovie);
     mainModel.selectHeroes(nameMovie).then((heroes) => {
-      modelHeroes.setHeroesList(heroes);
+      //modelHeroes.setHeroesList(heroes);
+      this._model.emit("movieSelected", heroes);
       //heroesView(heroes);
     });
   }
