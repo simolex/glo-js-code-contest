@@ -1,7 +1,7 @@
 import { heroesModel } from "./modules/heroesModel";
 import Swiper, { Navigation, Lazy } from "swiper";
 import { infoRender } from "./modules/infoRender";
-import { moviesSelector } from "./modules/moviesSelector";
+//import { moviesSelector } from "./modules/moviesSelector";
 
 //--------------------
 import { ListMoviesController } from "./modules/controllers/ListMoviesController";
@@ -28,11 +28,9 @@ const swiper = new Swiper(".swiper", {
 });
 
 const onSlideChange = function () {
-  mainModel
-    .getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName)
-    .then((heroes) => {
-      infoRender(heroes);
-    });
+  mainModel.getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName).then((heroes) => {
+    infoRender(heroes);
+  });
 };
 
 swiper.on("slideChangeTransitionEnd", onSlideChange);
