@@ -1,4 +1,4 @@
-import { moviesSelector } from "./moviesSelector";
+//import { moviesSelector } from "./moviesSelector";
 
 export class heroesModel {
   constructor(dbPath) {
@@ -19,12 +19,8 @@ export class heroesModel {
       });
   }
 
-  setTitle(name) {
-    this._moviesTitle.textContent = name;
-  }
-
   selectHeroes(movieName) {
-    this.setTitle(movieName);
+    //this.setTitle(movieName);
     return this.getData().then((heroes) => {
       return heroes.filter((theHero) => theHero.movies && theHero.movies.includes(movieName));
     });

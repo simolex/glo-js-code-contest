@@ -18,8 +18,10 @@ export class ListMoviesView extends EventEmitter {
     this._elements.heroesMovies.addEventListener("click", (e) => {
       const selectedMovie = e.target.closest(".heroes__movie-item");
       const id = selectedMovie.dataset.movies;
-      mainModel.selectHeroes(this._model.getMovieName(id)).then((heroes) => {
+      const nameMovie = this._model.getMovieName(id);
+      mainModel.selectHeroes(nameMovie).then((heroes) => {
         this._setActiveMovie(selectedMovie);
+        this._setTitle(nameMovie);
         heroesView(heroes);
       });
     });
@@ -38,6 +40,10 @@ export class ListMoviesView extends EventEmitter {
     this._elements.heroesMovies.addEventListener("mouseleave", () => {
       this._highlightMovie();
     });
+  }
+
+  _setTitle(nameMovie) {
+    this._elements.moviesTitle.textContent = nameMovie;
   }
 
   _markingMovieOption(markerClass, currentElement = {}) {
@@ -59,7 +65,9 @@ export class ListMoviesView extends EventEmitter {
   show() {
     this.rebuildTable();
     this._setActiveMovie(this._moviesElements[0]);
-    mainModel.selectHeroes(this._model.getMovieName(0)).then((heroes) => {
+    const nameMovie = this._model.getMovieName(0);
+    this._setTitle(nameMovie);
+    mainModel.selectHeroes(nameMovie).then((heroes) => {
       heroesView(heroes);
     });
   }

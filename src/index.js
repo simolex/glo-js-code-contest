@@ -62,6 +62,7 @@ mainModel.getData().then((data) => {
   const model = new ListMoviesModel(filterGroups.movies.sort());
   const view = new ListMoviesView(model, {
     heroesMovies: document.getElementById("heroes_movies"),
+    moviesTitle: document.querySelector(".heroes__title"),
     classHighlight: "heroes__movie-item--selected",
     classActive: "heroes__movie-item--active",
   });
