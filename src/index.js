@@ -15,29 +15,6 @@ import { HeroesListView } from "./modules/views/HeroesListView";
 
 let filterGroups = {};
 
-// const swiper = new Swiper(".swiper", {
-//   modules: [Navigation, Lazy],
-//   //preloadImages: false,
-//   lazy: {
-//     loadPrevNextAmount: 2,
-//   },
-
-//   slidesPerView: 2,
-//   spaceBetween: 30,
-//   navigation: {
-//     nextEl: ".heroes__button--next",
-//     prevEl: ".heroes__button--prev",
-//     disabledClass: "heroes__button--disabled",
-//   },
-// });
-
-// const onSlideChange = function () {
-//   mainModel.getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName).then((heroes) => {
-//     infoRender(heroes);
-//   });
-// };
-
-//swiper.on("slideChangeTransitionEnd", onSlideChange);
 window.mainModel = new heroesModel("./db/dbHeroes.json");
 
 mainModel.getData().then((data) => {
@@ -70,17 +47,15 @@ mainModel.getData().then((data) => {
   });
   const controllerMovies = new ListMoviesController(modelMovies, viewMovies);
   //-------------------
+
   const modelHeroes = new HeroesListModel();
-  //window.modelHeroes = modelHeroes;
   const viewHeroes = new HeroesListView(modelHeroes, {
     cardWrapper: document.querySelector(".cards__wrapper"),
     swiper: new Swiper(".swiper", {
       modules: [Navigation, Lazy],
-      //preloadImages: false,
       lazy: {
         loadPrevNextAmount: 2,
       },
-
       slidesPerView: 2,
       spaceBetween: 30,
       navigation: {
@@ -91,6 +66,7 @@ mainModel.getData().then((data) => {
     }),
   });
   const controllerHeroes = new HeroesListController(modelHeroes, viewHeroes);
+
   modelMovies.subscribe("movieSelected", (heroes) => modelHeroes.setHeroesList(heroes));
 
   viewMovies.show();

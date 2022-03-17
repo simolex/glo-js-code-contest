@@ -1,5 +1,3 @@
-//HeroesListController
-
 export class HeroesListController {
   constructor(model, view) {
     this._model = model;
