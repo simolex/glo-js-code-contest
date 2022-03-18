@@ -1,6 +1,6 @@
 import { heroesModel } from "./modules/heroesModel";
 import Swiper, { Navigation, Lazy } from "swiper";
-import { infoRender } from "./modules/infoRender";
+//import { infoRender } from "./modules/infoRender";
 //import { moviesSelector } from "./modules/moviesSelector";
 
 //--------------------
@@ -11,6 +11,10 @@ import { ListMoviesView } from "./modules/views/ListMoviesView";
 import { HeroesListController } from "./modules/controllers/HeroesListController";
 import { HeroesListModel } from "./modules/models/HeroesListModel";
 import { HeroesListView } from "./modules/views/HeroesListView";
+//--------------------
+import { MetricsController } from "./modules/controllers/MetricsController";
+import { MetricsModel } from "./modules/models/MetricsModel";
+import { MetricsView } from "./modules/views/MetricsView";
 //--------------------
 
 let filterGroups = {};
@@ -68,6 +72,15 @@ mainModel.getData().then((data) => {
   const controllerHeroes = new HeroesListController(modelHeroes, viewHeroes);
 
   modelMovies.subscribe("movieSelected", (heroes) => modelHeroes.setHeroesList(heroes));
+
+  const modelMetrics = new MetricsModel();
+  //window.modelMetrics = modelMetrics;
+  const viewMetrics = new MetricsView(modelMetrics, {
+    infoWrapper: document.querySelector(".info"),
+  });
+  const controllerMetrics = new MetricsController(modelMetrics, viewMetrics);
+
+  modelHeroes.subscribe("heroSelected", (heroMetrics) => modelMetrics.setMetrics(heroMetrics));
 
   viewMovies.show();
 });
