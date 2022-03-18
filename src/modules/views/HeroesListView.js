@@ -1,5 +1,5 @@
 import { EventEmitter } from "../EventEmitter";
-import { infoRender } from "../infoRender";
+//import { infoRender } from "../infoRender";
 
 export class HeroesListView extends EventEmitter {
   constructor(model, elements) {
@@ -11,9 +11,11 @@ export class HeroesListView extends EventEmitter {
     model.subscribe("listSetted", () => this.rebuildList());
 
     this._elements.swiper.on("slideChangeTransitionEnd", () => {
-      const heroesName = document.querySelector(".swiper-slide-active").dataset.heroesName;
+      const heroesName =
+        this._elements.cardWrapper.querySelector(".swiper-slide-active").dataset.heroesName;
       const heroMetrics = this._model.getHeroes().find((theHero) => theHero.name == heroesName);
-      infoRender(heroMetrics);
+
+      this._model.emit("heroSelected", heroMetrics);
     });
   }
 
@@ -51,9 +53,15 @@ export class HeroesListView extends EventEmitter {
     });
 
     this._elements.swiper.update();
+    this._elements.swiper.lazy.load();
+    // const heroesName =
+    //   this._elements.cardWrapper.querySelector(".swiper-slide-active").dataset.heroesName;
+    // modelMetrics.setMetrics(this._model.getHeroes().find((theHero) => theHero.name == heroesName));
+    //infoRender(this._model.getHeroes().find((theHero) => theHero.name == heroesName));
     const heroesName =
       this._elements.cardWrapper.querySelector(".swiper-slide-active").dataset.heroesName;
-    infoRender(this._model.getHeroes().find((theHero) => theHero.name == heroesName));
-    this._elements.swiper.lazy.load();
+    const heroMetrics = this._model.getHeroes().find((theHero) => theHero.name == heroesName);
+
+    this._model.emit("heroSelected", heroMetrics);
   }
 }

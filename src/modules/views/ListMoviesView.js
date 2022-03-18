@@ -1,5 +1,4 @@
 import { EventEmitter } from "../EventEmitter";
-//import { heroesView } from "../heroesView";
 
 export class ListMoviesView extends EventEmitter {
   constructor(model, elements) {
