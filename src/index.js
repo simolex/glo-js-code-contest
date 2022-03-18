@@ -1,8 +1,5 @@
 import { heroesModel } from "./modules/heroesModel";
 import Swiper, { Navigation, Lazy } from "swiper";
-//import { infoRender } from "./modules/infoRender";
-//import { moviesSelector } from "./modules/moviesSelector";
-
 //--------------------
 import { ListMoviesController } from "./modules/controllers/ListMoviesController";
 import { ListMoviesModel } from "./modules/models/ListMoviesModel";
@@ -51,7 +48,6 @@ mainModel.getData().then((data) => {
   });
   const controllerMovies = new ListMoviesController(modelMovies, viewMovies);
   //-------------------
-
   const modelHeroes = new HeroesListModel();
   const viewHeroes = new HeroesListView(modelHeroes, {
     cardWrapper: document.querySelector(".cards__wrapper"),
@@ -70,17 +66,14 @@ mainModel.getData().then((data) => {
     }),
   });
   const controllerHeroes = new HeroesListController(modelHeroes, viewHeroes);
-
   modelMovies.subscribe("movieSelected", (heroes) => modelHeroes.setHeroesList(heroes));
-
+  //-------------------
   const modelMetrics = new MetricsModel();
-  //window.modelMetrics = modelMetrics;
   const viewMetrics = new MetricsView(modelMetrics, {
     infoWrapper: document.querySelector(".info"),
   });
   const controllerMetrics = new MetricsController(modelMetrics, viewMetrics);
-
   modelHeroes.subscribe("heroSelected", (heroMetrics) => modelMetrics.setMetrics(heroMetrics));
-
+  //-------------------
   viewMovies.show();
 });

@@ -7,7 +7,6 @@ export class HeroesListView extends EventEmitter {
     this._model = model;
     this._elements = elements;
 
-    // attach model listeners
     model.subscribe("listSetted", () => this.rebuildList());
 
     this._elements.swiper.on("slideChangeTransitionEnd", () => {
@@ -54,10 +53,7 @@ export class HeroesListView extends EventEmitter {
 
     this._elements.swiper.update();
     this._elements.swiper.lazy.load();
-    // const heroesName =
-    //   this._elements.cardWrapper.querySelector(".swiper-slide-active").dataset.heroesName;
-    // modelMetrics.setMetrics(this._model.getHeroes().find((theHero) => theHero.name == heroesName));
-    //infoRender(this._model.getHeroes().find((theHero) => theHero.name == heroesName));
+
     const heroesName =
       this._elements.cardWrapper.querySelector(".swiper-slide-active").dataset.heroesName;
     const heroMetrics = this._model.getHeroes().find((theHero) => theHero.name == heroesName);

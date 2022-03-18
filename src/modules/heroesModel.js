@@ -1,5 +1,3 @@
-//import { moviesSelector } from "./moviesSelector";
-
 export class heroesModel {
   constructor(dbPath) {
     this._dbPath = dbPath;
@@ -20,14 +18,8 @@ export class heroesModel {
   }
 
   selectHeroes(movieName) {
-    //this.setTitle(movieName);
     return this.getData().then((heroes) => {
       return heroes.filter((theHero) => theHero.movies && theHero.movies.includes(movieName));
-    });
-  }
-  getHeroes(heroesName) {
-    return this.getData().then((heroes) => {
-      return heroes.find((theHero) => theHero.name == heroesName);
     });
   }
 }
