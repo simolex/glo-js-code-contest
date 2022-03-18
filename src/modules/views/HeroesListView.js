@@ -11,11 +11,9 @@ export class HeroesListView extends EventEmitter {
     model.subscribe("listSetted", () => this.rebuildList());
 
     this._elements.swiper.on("slideChangeTransitionEnd", () => {
-      mainModel
-        .getHeroes(document.querySelector(".swiper-slide-active").dataset.heroesName)
-        .then((heroes) => {
-          infoRender(heroes);
-        });
+      const heroesName = document.querySelector(".swiper-slide-active").dataset.heroesName;
+      const heroMetrics = this._model.getHeroes().find((theHero) => theHero.name == heroesName);
+      infoRender(heroMetrics);
     });
   }
 
