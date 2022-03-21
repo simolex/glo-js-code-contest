@@ -7,11 +7,13 @@ export class ListMoviesView extends EventEmitter {
     this._elements = elements;
     this._moviesElements = [];
 
+    model.subscribe("shareListSetted", () => this.rebuildList());
+
     this._elements.heroesMovies.addEventListener("click", (e) => {
       const selectedMovie = e.target.closest(".heroes__movie-item");
       const id = selectedMovie.dataset.movies;
       const nameMovie = this._model.getMovieName(id);
-      mainModel.selectHeroes(nameMovie).then((heroes) => {
+      mainDB.selectHeroes(nameMovie).then((heroes) => {
         this._setActiveMovie(selectedMovie);
         this._setTitle(nameMovie);
         this._model.emit("movieSelected", heroes);
@@ -59,7 +61,7 @@ export class ListMoviesView extends EventEmitter {
     this._setActiveMovie(this._moviesElements[0]);
     const nameMovie = this._model.getMovieName(0);
     this._setTitle(nameMovie);
-    mainModel.selectHeroes(nameMovie).then((heroes) => {
+    mainDB.selectHeroes(nameMovie).then((heroes) => {
       this._model.emit("movieSelected", heroes);
     });
   }
@@ -70,6 +72,9 @@ export class ListMoviesView extends EventEmitter {
     this._model.getMovies().forEach((movie, index) => {
       const option = document.createElement("li");
       option.classList.add("heroes__movie-item");
+      if (this._model.hasShare(movie)) {
+        option.classList.add(this._elements.classShare);
+      }
       option.dataset.movies = index;
       option.textContent = movie;
       this._moviesElements.push(option);

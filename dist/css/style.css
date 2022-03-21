@@ -8,7 +8,7 @@
 
 body {
   background-color: #011627;
-  color: rgb(137, 164, 187);
+  color: #89a4bb;
   font-family: "Montserrat", sans-serif;
   letter-spacing: -0.2px;
 }
@@ -150,10 +150,24 @@ img {
   height: 100%;
 }
 .heroes__movie-item {
+  position: relative;
   padding: 7px;
   border-radius: 7px;
   border: 3px solid transparent;
 }
+.heroes__movie-item--share::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 3px;
+  display: inline-block;
+  height: 20px;
+  width: 8px;
+  border-radius: 4px;
+  background-color: #384e61;
+}
+
 .heroes__movie-item--active {
   background-color: #02233e;
 }

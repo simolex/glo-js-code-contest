@@ -4,6 +4,7 @@ export class ListMoviesModel extends EventEmitter {
   constructor(moviesList) {
     super();
     this._moviesList = moviesList || [];
+    this._shareList = ["Black Panther", "Captain America: Civil War"];
   }
 
   getMovies() {
@@ -12,5 +13,12 @@ export class ListMoviesModel extends EventEmitter {
 
   getMovieName(index) {
     return this._moviesList.slice(+index, +index + 1)[0];
+  }
+  setShareList(shareList) {
+    this._shareList = shareList;
+    this.emit("shareListSetted", shareList);
+  }
+  hasShare(movie) {
+    return this._shareList.includes(movie);
   }
 }

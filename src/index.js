@@ -1,4 +1,4 @@
-import { heroesModel } from "./modules/heroesModel";
+import { heroesDB } from "./modules/heroesDB";
 import Swiper, { Navigation, Lazy } from "swiper";
 //--------------------
 import { ListMoviesController } from "./modules/controllers/ListMoviesController";
@@ -16,9 +16,10 @@ import { MetricsView } from "./modules/views/MetricsView";
 
 let filterGroups = {};
 
-window.mainModel = new heroesModel("./db/dbHeroes.json");
+window.mainDB = new heroesDB("./db/dbHeroes.json");
 
-mainModel.getData().then((data) => {
+//mainModel;
+mainDB.getData().then((data) => {
   data.forEach((heroes) => {
     for (let metric in heroes) {
       if (!filterGroups[metric] && metric === "movies") {
@@ -45,6 +46,7 @@ mainModel.getData().then((data) => {
     moviesTitle: document.querySelector(".heroes__title"),
     classHighlight: "heroes__movie-item--selected",
     classActive: "heroes__movie-item--active",
+    classShare: "heroes__movie-item--share",
   });
   const controllerMovies = new ListMoviesController(modelMovies, viewMovies);
   //-------------------
@@ -74,6 +76,9 @@ mainModel.getData().then((data) => {
   });
   const controllerMetrics = new MetricsController(modelMetrics, viewMetrics);
   modelHeroes.subscribe("heroSelected", (heroMetrics) => modelMetrics.setMetrics(heroMetrics));
+  modelMetrics.subscribe("metricsSetted", (heroMetrics) =>
+    modelMovies.setShareList(heroMetrics.movies)
+  );
   //-------------------
   viewMovies.show();
 });
