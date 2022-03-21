@@ -14,4 +14,10 @@ export class HeroesListModel extends EventEmitter {
     this._heroesList = heroesList;
     this.emit("listSetted", heroesList);
   }
+  createHeroesList(movie) {
+    mainDB.selectHeroes(movie).then((heroes) => {
+      this._heroesList = heroes;
+      this.emit("listSetted", heroes);
+    });
+  }
 }

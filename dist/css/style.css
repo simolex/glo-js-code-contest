@@ -17,6 +17,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 0;
 }
 .swiper-slide-next {
   transform: scale(0.57) !important;
@@ -165,11 +166,11 @@ img {
   height: 20px;
   width: 8px;
   border-radius: 4px;
-  background-color: #384e61;
+  background-color: hsl(208, 27%, 30%);
 }
 
 .heroes__movie-item--active {
-  background-color: #02233e;
+  background-color: hsl(207, 94%, 17%);
 }
 
 .heroes__movie-item--selected {

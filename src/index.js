@@ -68,7 +68,7 @@ mainDB.getData().then((data) => {
     }),
   });
   const controllerHeroes = new HeroesListController(modelHeroes, viewHeroes);
-  modelMovies.subscribe("movieSelected", (heroes) => modelHeroes.setHeroesList(heroes));
+  modelMovies.subscribe("movieSelected", (movie) => modelHeroes.createHeroesList(movie));
   //-------------------
   const modelMetrics = new MetricsModel();
   const viewMetrics = new MetricsView(modelMetrics, {
