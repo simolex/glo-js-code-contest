@@ -37,23 +37,13 @@ export class ListMoviesView extends EventEmitter {
 
     this._elements.heroesMovies.addEventListener("mouseleave", () => {
       this.emit("mouseLeaveMovie");
-      //this._highlightMovie();
     });
   }
-
+  //Заголовок должен жить в другой структуре, но пока здесь.
   setTitle(nameMovie) {
     this._elements.moviesTitle.textContent = nameMovie;
   }
 
-  // _markingMovieOption(markerClass, currentElement = {}) {
-  //   this._moviesElements.forEach((elem) => {
-  //     if (currentElement !== {} && elem === currentElement) {
-  //       elem.classList.add(markerClass);
-  //     } else {
-  //       elem.classList.remove(markerClass);
-  //     }
-  //   });
-  // }
   _unHighlightMovie(id) {
     this._moviesElements[id].classList.remove(this._elements.classHighlight);
   }
@@ -61,10 +51,6 @@ export class ListMoviesView extends EventEmitter {
   _onHighlightMovie(id, currentElement) {
     this._moviesElements[id].classList.add(this._elements.classHighlight);
   }
-
-  // _setActiveMovie(currentElement, id) {
-  //   this._markingMovieOption(this._elements.classActive, currentElement);
-  // }
 
   // _setShareState(currentElement, isEditable = false) {
   //   //if()
@@ -74,10 +60,6 @@ export class ListMoviesView extends EventEmitter {
 
   show() {
     this.emit("selectMovie", 0);
-    // this._model.setActiveMovie(0);
-
-    // const nameMovie = this._model.getMovieName(0);
-    // this.setTitle(nameMovie);
   }
 
   rebuildList() {
