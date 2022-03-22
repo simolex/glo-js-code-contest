@@ -49,6 +49,7 @@ mainDB.getData().then((data) => {
     classShare: "heroes__movie-item--share",
   });
   const controllerMovies = new ListMoviesController(modelMovies, viewMovies);
+
   //-------------------
   const modelHeroes = new HeroesListModel();
   const viewHeroes = new HeroesListView(modelHeroes, {
@@ -76,9 +77,8 @@ mainDB.getData().then((data) => {
   });
   const controllerMetrics = new MetricsController(modelMetrics, viewMetrics);
   modelHeroes.subscribe("heroSelected", (heroMetrics) => modelMetrics.setMetrics(heroMetrics));
-  modelMetrics.subscribe("metricsSetted", (heroMetrics) =>
-    modelMovies.setShareList(heroMetrics.movies)
-  );
+  modelMetrics.subscribe("metricsSetted", (heroMetrics) => modelMovies.setShareList(heroMetrics.movies));
+  modelMovies.subscribe("shareListChanged", (moviesList) => modelMetrics.setMoviesList(moviesList));
   //-------------------
   viewMovies.show();
 });

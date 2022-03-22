@@ -30,4 +30,12 @@ export class heroesDB {
       return heroes.filter((theHero) => theHero.movies && theHero.movies.includes(movieName));
     });
   }
+
+  changeMovies(id, moviesList) {
+    console.log({
+      action: fetch,
+      id,
+      patch: moviesList,
+    });
+  }
 }

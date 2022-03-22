@@ -27,10 +27,7 @@ export class ListMoviesView extends EventEmitter {
     this._elements.heroesMovies.addEventListener(
       "mouseenter",
       (e) => {
-        this.emit(
-          "mouseEnterMovie",
-          this._moviesElements.indexOf(e.target.closest(".heroes__movie-item"))
-        );
+        this.emit("mouseEnterMovie", this._moviesElements.indexOf(e.target.closest(".heroes__movie-item")));
       },
       true
     );
@@ -98,7 +95,7 @@ export class ListMoviesView extends EventEmitter {
       option.append(viewEditBlock);
       this._moviesElements.push(option);
       this._elements.heroesMovies.append(option);
-      console.log(this._moviesElements);
+      //console.log(this._moviesElements);
     });
   }
 }
