@@ -13,8 +13,7 @@ export class ListMoviesController {
   }
   selectMovie(id) {
     this._model.setActiveMovie(id);
-    const nameMovie = this._model.getMovieName(id);
-    this._view.setTitle(nameMovie);
+    this._view.setTitle(this._model.getMovieName(id));
   }
 
   changeEnteredMovie(id) {
