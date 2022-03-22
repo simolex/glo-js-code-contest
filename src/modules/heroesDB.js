@@ -1,4 +1,4 @@
-export class heroesModel {
+export class heroesDB {
   constructor(dbPath) {
     this._dbPath = dbPath;
     this._moviesTitle = document.querySelector(".heroes__title");

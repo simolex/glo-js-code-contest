@@ -7,15 +7,14 @@ export class ListMoviesView extends EventEmitter {
     this._elements = elements;
     this._moviesElements = [];
 
+    model.subscribe("shareListSetted", () => this.rebuildList());
+
     this._elements.heroesMovies.addEventListener("click", (e) => {
-      const selectedMovie = e.target.closest(".heroes__movie-item");
-      const id = selectedMovie.dataset.movies;
+      const id = e.target.closest(".heroes__movie-item").dataset.movies;
+      this._model.setActiveMovie(id);
+
       const nameMovie = this._model.getMovieName(id);
-      mainModel.selectHeroes(nameMovie).then((heroes) => {
-        this._setActiveMovie(selectedMovie);
-        this._setTitle(nameMovie);
-        this._model.emit("movieSelected", heroes);
-      });
+      this._setTitle(nameMovie);
     });
 
     this._elements.heroesMovies.addEventListener(
@@ -55,21 +54,23 @@ export class ListMoviesView extends EventEmitter {
   }
 
   show() {
-    this.rebuildList();
-    this._setActiveMovie(this._moviesElements[0]);
+    this._model.setActiveMovie(0);
+
     const nameMovie = this._model.getMovieName(0);
     this._setTitle(nameMovie);
-    mainModel.selectHeroes(nameMovie).then((heroes) => {
-      this._model.emit("movieSelected", heroes);
-    });
   }
 
   rebuildList() {
     this._elements.heroesMovies.innerHTML = "";
-
     this._model.getMovies().forEach((movie, index) => {
       const option = document.createElement("li");
       option.classList.add("heroes__movie-item");
+      if (this._model.hasShare(movie)) {
+        option.classList.add(this._elements.classShare);
+      }
+      if (index == this._model.getActiveMovie()) {
+        option.classList.add(this._elements.classActive);
+      }
       option.dataset.movies = index;
       option.textContent = movie;
       this._moviesElements.push(option);
