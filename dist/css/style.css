@@ -26,6 +26,15 @@ img {
   max-width: 1200px;
   margin: 0 auto;
 }
+.movie-edit {
+  background-color: lime;
+  border: none;
+}
+.heroes_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .heroes__title {
   padding-left: 120px;
   /* display: block; */
@@ -155,6 +164,9 @@ img {
   padding: 7px;
   border-radius: 7px;
   border: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .heroes__movie-item--share::after {
   content: " ";

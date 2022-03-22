@@ -6,6 +6,14 @@ export class ListMoviesModel extends EventEmitter {
     this._moviesList = moviesList || [];
     this._shareList = [];
     this._activeMovieId = 0;
+    this._enteredMovie = -1;
+  }
+
+  set enteredMovie(idMovie) {
+    this._enteredMovie = idMovie;
+  }
+  get enteredMovie() {
+    return this._enteredMovie;
   }
 
   getMovies() {
@@ -26,6 +34,14 @@ export class ListMoviesModel extends EventEmitter {
   setShareList(shareList) {
     this._shareList = shareList;
     this.emit("shareListSetted", shareList);
+  }
+  editShareList(id, checked) {
+    if (checked) {
+      this._shareList.push(this._moviesList[id]);
+    } else {
+      this._shareList = this._shareList.filter((movie) => movie !== this._moviesList[id]);
+    }
+    this.emit("shareListChanged", this._shareList.slice());
   }
   hasShare(movie) {
     return this._shareList.includes(movie);

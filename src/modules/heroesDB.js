@@ -2,7 +2,15 @@ export class heroesDB {
   constructor(dbPath) {
     this._dbPath = dbPath;
     this._moviesTitle = document.querySelector(".heroes__title");
+    this._mode = false; //"readonly" "readwrite"
+    document.getElementById("mode").addEventListener("change", (e) => {
+      this._mode = e.target.checked;
+    });
   }
+  isEditable() {
+    return this._mode;
+  }
+
   getData() {
     return fetch(this._dbPath)
       .then((res) => {
