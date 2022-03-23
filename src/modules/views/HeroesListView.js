@@ -41,7 +41,7 @@ export class HeroesListView extends EventEmitter {
     this._elements.cardWrapper.innerHTML = "";
 
     this._model.getHeroes().forEach((hero) => {
-      hero.photo = `./db/${hero.photo}`;
+      hero.photo = `./img/${hero.photo}`;
       this._createHero(hero);
     });
 

@@ -12,4 +12,11 @@ export class MetricsModel extends EventEmitter {
     this._metricsList = metricsList || [];
     this.emit("metricsSetted", metricsList);
   }
+  setMoviesList(moviesList) {
+    this._metricsList.movies = moviesList;
+
+    mainDB.changeMovies(this._metricsList.id, {
+      movies: this._metricsList.movies,
+    });
+  }
 }

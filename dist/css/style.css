@@ -26,6 +26,15 @@ img {
   max-width: 1200px;
   margin: 0 auto;
 }
+.movie-edit {
+  background-color: #434d57;
+  border: none;
+}
+.heroes_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .heroes__title {
   padding-left: 120px;
   /* display: block; */
@@ -33,6 +42,7 @@ img {
   font-size: 2.5rem;
   position: relative;
   margin: 50px 0;
+  flex-grow: 0.8;
 }
 .heroes__title::before {
   content: "movie";
@@ -155,6 +165,9 @@ img {
   padding: 7px;
   border-radius: 7px;
   border: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .heroes__movie-item--share::after {
   content: " ";
