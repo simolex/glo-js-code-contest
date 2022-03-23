@@ -7,7 +7,7 @@
     "build": "webpack --mode=production",
     "watch": "webpack --watch --mode=development",
     "start": "webpack serve --mode=development --open",
-    "server": "json-server --watch db/dbHeroes.json --port=4545"
+    "server": "json-server db/dbHeroes.json"
   },
   "repository": {
     "type": "git",

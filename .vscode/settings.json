@@ -1,0 +1,10 @@
+{
+  "liveServer.settings.ignoreFiles": [
+    ".vscode/**",
+    "db/**",
+    "**/*.scss",
+    "**/*.sass",
+    "**/*.ts",
+    "**/*.json"
+  ]
+}

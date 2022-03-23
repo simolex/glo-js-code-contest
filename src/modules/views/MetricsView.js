@@ -13,7 +13,7 @@ export class MetricsView extends EventEmitter {
     this._elements.infoWrapper.innerHTML = "";
     const heroMetrics = this._model.getMetrics();
     for (let metric in heroMetrics) {
-      if ("photo" !== metric && "movies" !== metric) {
+      if ("photo" !== metric && "movies" !== metric && "id" !== metric) {
         const itemInfo = document.createElement("div");
         itemInfo.classList.add("info__item");
         itemInfo.innerHTML = `

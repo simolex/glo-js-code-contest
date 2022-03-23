@@ -9,7 +9,11 @@
       "status": "deceased",
       "actors": "Tilda Swinton",
       "photo": "dbimage/DS_Ancient_One_Poster_cropped.png",
-      "movies": ["Doctor Strange", "Avengers: Endgame"]
+      "movies": [
+        "Doctor Strange",
+        "Avengers: Endgame"
+      ],
+      "id": 1
     },
     {
       "name": "Ant-Man",
@@ -25,7 +29,8 @@
         "Captain America: Civil War",
         "Ant-Man and the Wasp",
         "Avengers: Endgame"
-      ]
+      ],
+      "id": 2
     },
     {
       "name": "Black Panther",
@@ -41,69 +46,8 @@
         "Black Panther",
         "Avengers: Infinity War",
         "Avengers: Endgame"
-      ]
-    },
-    {
-      "name": "Black Widow",
-      "realName": "Natalia Alianovna Romanoff",
-      "species": "human",
-      "citizenship": "Soviet",
-      "gender": "female",
-      "birthDay": "1984",
-      "deathDay": "2014",
-      "status": "alive",
-      "actors": "Scarlett Johansson",
-      "photo": "dbimage/BlackWidow-EndgameProfile.jpg",
-      "movies": [
-        "Iron Man 2",
-        "The Avengers",
-        "Captain America: The Winter Soldier",
-        "Avengers: Age of Ultron",
-        "Captain America: Civil War",
-        "Avengers: Infinity War",
-        "Avengers: Endgame"
-      ]
-    },
-    {
-      "name": "Captain America",
-      "realName": "Steven Grant Rogers",
-      "species": "human",
-      "citizenship": "British",
-      "gender": "male",
-      "birthDay": "1918",
-      "status": "alive",
-      "actors": "Chris Evans",
-      "photo": "dbimage/CapAmerica-EndgameProfile.jpg",
-      "movies": [
-        "Captain America: The First Avenger",
-        "The Avengers",
-        "Captain America: The Winter Soldier",
-        "Avengers: Age of Ultron",
-        "Captain America: Civil War",
-        "Avengers: Infinity War",
-        "Avengers: Endgame"
-      ]
-    },
-    {
-      "name": "Captain Marvel",
-      "realName": "Carol Danvers",
-      "species": "human",
-      "citizenship": "American",
-      "gender": "female",
-      "status": "alive",
-      "actors": "Brie Larson",
-      "photo": "dbimage/CapMarvel-EndgameProfile.jpg",
-      "movies": ["Captain Marvel", "Avengers: Endgame"]
-    },
-    {
-      "name": "Daredevil",
-      "realName": "Matthew Michael Murdock",
-      "species": "human",
-      "citizenship": "American",
-      "gender": "male",
-      "status": "alive",
-      "actors": "Charlie Cox",
-      "photo": "dbimage/Daredevil_S3_Textless_Poster03.jpg"
+      ],
+      "id": 3
     },
     {
       "name": "Doctor Strange",
@@ -114,7 +58,13 @@
       "status": "alive",
       "actors": "Benedict Cumberbatch",
       "photo": "dbimage/Doctor_Strange_AIW_Profile.jpg",
-      "movies": ["Doctor Strange", "Thor: Ragnarok", "Avengers: Infinity War", "Avengers: Endgame"]
+      "movies": [
+        "Doctor Strange",
+        "Thor: Ragnarok",
+        "Avengers: Infinity War",
+        "Avengers: Endgame"
+      ],
+      "id": 4
     },
     {
       "name": "Drax the Destroyer",
@@ -123,53 +73,34 @@
       "gender": "male",
       "status": "alive",
       "actors": "Dave Bautista",
-      "photo": "dbimage/Drax_AIW_Profile.jpg"
+      "photo": "dbimage/Drax_AIW_Profile.jpg",
+      "id": 5
     },
     {
-      "name": "Dum Dum Dugan",
-      "realName": "Timothy Aloysius Cadwallader Dugan",
+      "name": "Captain Marvel",
+      "realName": "Carol Danvers",
+      "species": "human",
+      "citizenship": "American",
+      "gender": "female",
+      "status": "alive",
+      "actors": "Brie Larson",
+      "photo": "dbimage/CapMarvel-EndgameProfile.jpg",
+      "movies": [
+        "Captain Marvel",
+        "Avengers: Endgame"
+      ],
+      "id": 6
+    },
+    {
+      "name": "Daredevil",
+      "realName": "Matthew Michael Murdock",
       "species": "human",
       "citizenship": "American",
       "gender": "male",
-      "birthDay": "1912",
-      "status": "unknown",
-      "actors": "Neal McDonough",
-      "photo": "dbimage/DumDumDuganProfile.png",
-      "movies": ["Captain America: The First Avenger", "The Avengers"]
-    },
-    {
-      "name": "Edwin Jarvis",
-      "realName": "Edwin Jarvis",
-      "species": "human",
-      "citizenship": "British",
-      "gender": "male",
-      "status": "deceased",
-      "actors": "James D'Arcy",
-      "photo": "dbimage/Agent_Carter_Season_2_Promo_02.jpg",
-      "movies": ["Avengers: Endgame"]
-    },
-    {
-      "name": "Ego",
-      "realName": "Ego",
-      "species": "Celestial",
-      "gender": "male",
-      "deathDay": "2014",
-      "status": "deceased",
-      "actors": "Kurt Russell",
-      "photo": "dbimage/Ego_Profile%281%29.png",
-      "movies": ["Guardians of the Galaxy Vol. 2"]
-    },
-    {
-      "name": "Executioner",
-      "realName": "Skurge",
-      "species": "human",
-      "citizenship": "American",
-      "gender": "male",
-      "deathDay": "2017",
-      "status": "deceased",
-      "actors": "Karl Urban",
-      "photo": "dbimage/Skurgetheexecutionerprofile.png",
-      "movies": ["Thor: Ragnarok"]
+      "status": "alive",
+      "actors": "Charlie Cox",
+      "photo": "dbimage/Daredevil_S3_Textless_Poster03.jpg",
+      "id": 7
     },
     {
       "name": "Falcon",
@@ -187,22 +118,8 @@
         "Captain America: Civil War",
         "Avengers: Infinity War",
         "Avengers: Endgame"
-      ]
-    },
-    {
-      "name": "Gamora",
-      "realName": "Gamora",
-      "species": "Zehoberei",
-      "gender": "female",
-      "status": "alive",
-      "actors": "Zoe Saldana",
-      "photo": "dbimage/Gamora_AIW_Profile.jpg",
-      "movies": [
-        "Guardians of the Galaxy",
-        "Guardians of the Galaxy Vol. 2",
-        "Avengers: Infinity War",
-        "Avengers: Endgame"
-      ]
+      ],
+      "id": 8
     },
     {
       "name": "Groot",
@@ -218,59 +135,39 @@
         "Guardians of the Galaxy Vol. 2",
         "Avengers: Infinity War",
         "Avengers: Endgame"
-      ]
+      ],
+      "id": 9
     },
     {
-      "name": "Hank Pym",
-      "realName": "Henry Jonathan Pym",
-      "species": "human",
-      "citizenship": "American",
-      "gender": "male",
-      "status": "alive",
-      "actors": "Michael Douglas",
-      "photo": "dbimage/Textless_AMATW_Character_Posters_03.jpg",
-      "movies": ["Ant-Man", "Ant-Man and the Wasp", "Avengers: Endgame"]
-    },
-    {
-      "name": "Hawkeye",
-      "realName": "Clinton Francis Barton",
-      "species": "human",
-      "citizenship": "American",
-      "gender": "male",
-      "status": "alive",
-      "actors": "Jeremy Renner",
-      "photo": "dbimage/HawkeyeRonin-EndgameProfile.jpg",
-      "movies": [
-        "Thor",
-        "The Avengers",
-        "Avengers: Age of Ultron",
-        "Captain America: Civil War",
-        "Avengers: Endgame"
-      ]
-    },
-    {
-      "name": "Heimdall",
-      "realName": "Heimdall",
-      "species": "human",
-      "citizenship": "Asgardian",
-      "gender": "male",
-      "deathDay": "2018",
-      "status": "alive",
-      "actors": "Idris Elba",
-      "photo": "dbimage/Thor_Ragnarok_Textless_Character_Posters_07.jpg",
-      "movies": ["Thor", "Thor: The Dark World", "Thor: Ragnarok", "Avengers: Infinity War"]
-    },
-    {
-      "name": "Hela",
-      "realName": "Hela Odinsdottir",
-      "species": "Asgardian",
-      "citizenship": "Asgardian",
+      "name": "Gamora",
+      "realName": "Gamora",
+      "species": "Zehoberei",
       "gender": "female",
+      "status": "alive",
+      "actors": "Zoe Saldana",
+      "photo": "dbimage/Gamora_AIW_Profile.jpg",
+      "movies": [
+        "Guardians of the Galaxy",
+        "Guardians of the Galaxy Vol. 2",
+        "Avengers: Infinity War",
+        "Avengers: Endgame"
+      ],
+      "id": 10
+    },
+    {
+      "name": "Executioner",
+      "realName": "Skurge",
+      "species": "human",
+      "citizenship": "American",
+      "gender": "male",
       "deathDay": "2017",
       "status": "deceased",
-      "actors": "Cate Blanchett",
-      "photo": "dbimage/Thor_Ragnarok_Textless_Character_Posters_01.jpg",
-      "movies": ["Thor: Ragnarok"]
+      "actors": "Karl Urban",
+      "photo": "dbimage/Skurgetheexecutionerprofile.png",
+      "movies": [
+        "Thor: Ragnarok"
+      ],
+      "id": 11
     },
     {
       "name": "Helmut Zemo",
@@ -281,7 +178,10 @@
       "status": "alive",
       "actors": "Daniel Brühl",
       "photo": "dbimage/HelmutZemo-Masked.jpg",
-      "movies": ["Captain America: Civil War"]
+      "movies": [
+        "Captain America: Civil War"
+      ],
+      "id": 12
     },
     {
       "name": "Hulk",
@@ -300,7 +200,8 @@
         "Thor: Ragnarok",
         "Avengers: Infinity War",
         "Avengers: Endgame"
-      ]
+      ],
+      "id": 13
     },
     {
       "name": "Iron Man",
@@ -322,7 +223,8 @@
         "Spider-Man: Homecoming",
         "Avengers: Infinity War",
         "Avengers: Endgame"
-      ]
+      ],
+      "id": 14
     },
     {
       "name": "Jane Foster",
@@ -333,7 +235,12 @@
       "status": "alive",
       "actors": "Natalie Portman",
       "photo": "dbimage/Jane_Foster_Asgardian.jpg",
-      "movies": ["Thor", "Thor: The Dark World", "Avengers: Endgame"]
+      "movies": [
+        "Thor",
+        "Thor: The Dark World",
+        "Avengers: Endgame"
+      ],
+      "id": 15
     },
     {
       "name": "Korg",
@@ -344,7 +251,11 @@
       "status": "alive",
       "actors": "Taika Waititi",
       "photo": "dbimage/Korgas152.jpg",
-      "movies": ["Thor: Ragnarok", "Avengers: Endgame"]
+      "movies": [
+        "Thor: Ragnarok",
+        "Avengers: Endgame"
+      ],
+      "id": 16
     },
     {
       "name": "Loki",
@@ -364,18 +275,8 @@
         "Thor: Ragnarok",
         "Avengers: Infinity War",
         "Avengers: Endgame"
-      ]
-    },
-    {
-      "name": "M'Baku",
-      "realName": "M'Baku",
-      "species": "human",
-      "citizenship": "Wakandan",
-      "gender": "male",
-      "status": "alive",
-      "actors": "Winston Duke",
-      "photo": "dbimage/Black_Panther_Textless_Character_Poster_11.jpg",
-      "movies": ["Black Panther", "Avengers: Infinity War", "Avengers: Endgame"]
+      ],
+      "id": 17
     },
     {
       "name": "Mantis",
@@ -384,7 +285,12 @@
       "status": "alive",
       "actors": "Pom Klementieff",
       "photo": "dbimage/Mantis_AIW_Profile.jpg",
-      "movies": ["Guardians of the Galaxy Vol. 2", "Avengers: Infinity War", "Avengers: Endgame"]
+      "movies": [
+        "Guardians of the Galaxy Vol. 2",
+        "Avengers: Infinity War",
+        "Avengers: Endgame"
+      ],
+      "id": 18
     },
     {
       "name": "Mysterio",
@@ -396,19 +302,10 @@
       "status": "deceased",
       "actors": "Jake Gyllenhaal",
       "photo": "dbimage/Mysterio-ChinesePromotional.png",
-      "movies": ["Spider-Man: Far From Home"]
-    },
-    {
-      "name": "Odin",
-      "realName": "Odin Borson",
-      "species": "Asgardian",
-      "citizenship": "Asgardian",
-      "gender": "male",
-      "deathDay": "2017",
-      "status": "deceased",
-      "actors": "Anthony Hopkins",
-      "photo": "dbimage/Thor_Ragnarok_Textless_Character_Posters_08.jpg",
-      "movies": ["Thor", "Thor: The Dark World", "Thor: Ragnarok "]
+      "movies": [
+        "Spider-Man: Far From Home"
+      ],
+      "id": 19
     },
     {
       "name": "Peggy Carter",
@@ -425,7 +322,8 @@
         "Captain America: The First Avenger",
         "Captain America: The Winter Soldier",
         "Avengers: Endgame"
-      ]
+      ],
+      "id": 20
     },
     {
       "name": "Pepper Potts",
@@ -444,7 +342,8 @@
         "Spider-Man: Homecoming",
         "Avengers: Infinity War",
         "Avengers: Endgame"
-      ]
+      ],
+      "id": 21
     },
     {
       "name": "Phil Coulson",
@@ -457,7 +356,14 @@
       "status": "deceased",
       "actors": "Clark Gregg",
       "photo": "dbimage/Coulson_AoS5.jpg",
-      "movies": ["Iron Man", "Iron Man 2", "Thor", "The Avengers", "Captain Marvel"]
+      "movies": [
+        "Iron Man",
+        "Iron Man 2",
+        "Thor",
+        "The Avengers",
+        "Captain Marvel"
+      ],
+      "id": 22
     },
     {
       "name": "Quicksilver",
@@ -468,7 +374,10 @@
       "status": "deceased",
       "actors": "Aaron Taylor-Johnson",
       "photo": "dbimage/Qckslvr.jpg",
-      "movies": ["Avengers: Age of Ultron"]
+      "movies": [
+        "Avengers: Age of Ultron"
+      ],
+      "id": 23
     },
     {
       "name": "Red Skull",
@@ -483,64 +392,8 @@
         "Captain America: The First Avenger",
         "Avengers: Infinity War",
         "Avengers: Endgame"
-      ]
-    },
-    {
-      "name": "Scarlet Witch",
-      "realName": "Wanda Maximoff",
-      "species": "human",
-      "citizenship": "sokovian",
-      "gender": "female",
-      "status": "alive",
-      "actors": "Elizabeth Olsen",
-      "photo": "dbimage/Scarlet_Witch_AIW_Profile.jpg",
-      "movies": [
-        "Avengers: Age of Ultron",
-        "Captain America: Civil War",
-        "Avengers: Infinity War",
-        "Avengers: Endgame"
-      ]
-    },
-    {
-      "name": "Shuri",
-      "realName": "Shuri",
-      "species": "human",
-      "citizenship": "Wakandan",
-      "gender": "female",
-      "status": "alive",
-      "actors": "Letitia Wright",
-      "photo": "dbimage/Shuri_AIW_Profile.jpg",
-      "movies": ["Black Panther", "Avengers: Infinity War", "Avengers: Endgame"]
-    },
-    {
-      "name": "Sif",
-      "realName": "Sif",
-      "species": "Asgardian",
-      "citizenship": "Asgardian",
-      "gender": "female",
-      "status": "alive",
-      "actors": "Jaimie Alexander",
-      "photo": "dbimage/Sifwhoyoureallyare.jpg",
-      "movies": ["Thor", "Thor: The Dark World"]
-    },
-    {
-      "name": "Spider-Man",
-      "realName": "Peter Benjamin Parker",
-      "species": "human",
-      "citizenship": "American",
-      "gender": "male",
-      "birthDay": "2001",
-      "status": "alive",
-      "actors": "Tom Holland",
-      "photo": "dbimage/Spider-Man_FFH_Profile.jpg",
-      "movies": [
-        "Iron Man 2",
-        "Captain America: Civil War",
-        "Spider-Man: Homecoming",
-        "Avengers: Infinity War",
-        "Avengers: Endgame",
-        "Spider-Man: Far From Home"
-      ]
+      ],
+      "id": 24
     },
     {
       "name": "Star-Lord",
@@ -557,24 +410,8 @@
         "Guardians of the Galaxy Vol. 2",
         "Avengers: Infinity War",
         "Avengers: Endgame"
-      ]
-    },
-    {
-      "name": "Thanos",
-      "realName": "Thanos",
-      "species": "Titan",
-      "gender": "male",
-      "birthDay": "1013",
-      "deathDay": "2018",
-      "status": "deceased",
-      "actors": "Josh Brolin",
-      "photo": "dbimage/97d1d9f934a350cee765c5ac1a466605.jpg",
-      "movies": [
-        "Guardians of the Galaxy",
-        "Guardians of the Galaxy Vol. 2",
-        "Avengers: Infinity War",
-        "Avengers: Endgame"
-      ]
+      ],
+      "id": 25
     },
     {
       "name": "Thor",
@@ -594,7 +431,8 @@
         "Thor: Ragnarok",
         "Avengers: Infinity War",
         "Avengers: Endgame"
-      ]
+      ],
+      "id": 26
     },
     {
       "name": "Valkyrie",
@@ -605,7 +443,11 @@
       "status": "alive",
       "actors": "Tessa Thompson",
       "photo": "dbimage/Thor_Ragnarok_Textless_Character_Posters_05.jpg",
-      "movies": ["Thor: Ragnarok", "Avengers: Endgame"]
+      "movies": [
+        "Thor: Ragnarok",
+        "Avengers: Endgame"
+      ],
+      "id": 27
     },
     {
       "name": "Vision",
@@ -617,7 +459,12 @@
       "status": "destroyed",
       "actors": "Paul Bettany",
       "photo": "dbimage/Vision_AIW_Profile.jpg",
-      "movies": ["Avengers: Age of Ultron", "Captain America: Civil War", "Avengers: Infinity War"]
+      "movies": [
+        "Avengers: Age of Ultron",
+        "Captain America: Civil War",
+        "Avengers: Infinity War"
+      ],
+      "id": 28
     },
     {
       "name": "Vulture",
@@ -628,7 +475,311 @@
       "status": "alive",
       "actors": "Michael Keaton",
       "photo": "dbimage/Vulture.jpg",
-      "movies": ["Spider-Man: Homecoming"]
+      "movies": [
+        "Spider-Man: Homecoming"
+      ],
+      "id": 29
+    },
+    {
+      "name": "Wong",
+      "realName": "Wong",
+      "species": "human",
+      "citizenship": "Chinese",
+      "gender": "male",
+      "status": "alive",
+      "actors": "Benedict Wong",
+      "photo": "dbimage/Wong_AIW_Profile.jpg",
+      "movies": [
+        "Doctor Strange",
+        "Avengers: Infinity War",
+        "Avengers: Endgame"
+      ],
+      "id": 30
+    },
+    {
+      "name": "Yondu Udonta",
+      "realName": "Yondu Udonta",
+      "species": "Centaurian",
+      "gender": "male",
+      "deathDay": "2014",
+      "status": "deceased",
+      "actors": "Michael Rooker",
+      "photo": "dbimage/Yondu_Profile%281%29.png",
+      "movies": [
+        "Guardians of the Galaxy",
+        "Guardians of the Galaxy Vol. 2"
+      ],
+      "id": 31
+    },
+    {
+      "name": "Black Widow",
+      "realName": "Natalia Alianovna Romanoff",
+      "species": "human",
+      "citizenship": "Soviet",
+      "gender": "female",
+      "birthDay": "1984",
+      "deathDay": "2014",
+      "status": "alive",
+      "actors": "Scarlett Johansson",
+      "photo": "dbimage/BlackWidow-EndgameProfile.jpg",
+      "movies": [
+        "Iron Man 2",
+        "The Avengers",
+        "Captain America: The Winter Soldier",
+        "Avengers: Age of Ultron",
+        "Captain America: Civil War",
+        "Avengers: Infinity War",
+        "Avengers: Endgame"
+      ],
+      "id": 32
+    },
+    {
+      "name": "Captain America",
+      "realName": "Steven Grant Rogers",
+      "species": "human",
+      "citizenship": "British",
+      "gender": "male",
+      "birthDay": "1918",
+      "status": "alive",
+      "actors": "Chris Evans",
+      "photo": "dbimage/CapAmerica-EndgameProfile.jpg",
+      "movies": [
+        "Captain America: The First Avenger",
+        "The Avengers",
+        "Captain America: The Winter Soldier",
+        "Avengers: Age of Ultron",
+        "Captain America: Civil War",
+        "Avengers: Infinity War",
+        "Avengers: Endgame"
+      ],
+      "id": 33
+    },
+    {
+      "name": "Dum Dum Dugan",
+      "realName": "Timothy Aloysius Cadwallader Dugan",
+      "species": "human",
+      "citizenship": "American",
+      "gender": "male",
+      "birthDay": "1912",
+      "status": "unknown",
+      "actors": "Neal McDonough",
+      "photo": "dbimage/DumDumDuganProfile.png",
+      "movies": [
+        "Captain America: The First Avenger",
+        "The Avengers"
+      ],
+      "id": 34
+    },
+    {
+      "name": "Edwin Jarvis",
+      "realName": "Edwin Jarvis",
+      "species": "human",
+      "citizenship": "British",
+      "gender": "male",
+      "status": "deceased",
+      "actors": "James D'Arcy",
+      "photo": "dbimage/Agent_Carter_Season_2_Promo_02.jpg",
+      "movies": [
+        "Avengers: Endgame"
+      ],
+      "id": 35
+    },
+    {
+      "name": "Ego",
+      "realName": "Ego",
+      "species": "Celestial",
+      "gender": "male",
+      "deathDay": "2014",
+      "status": "deceased",
+      "actors": "Kurt Russell",
+      "photo": "dbimage/Ego_Profile%281%29.png",
+      "movies": [
+        "Guardians of the Galaxy Vol. 2"
+      ],
+      "id": 36
+    },
+    {
+      "name": "Hank Pym",
+      "realName": "Henry Jonathan Pym",
+      "species": "human",
+      "citizenship": "American",
+      "gender": "male",
+      "status": "alive",
+      "actors": "Michael Douglas",
+      "photo": "dbimage/Textless_AMATW_Character_Posters_03.jpg",
+      "movies": [
+        "Ant-Man",
+        "Ant-Man and the Wasp",
+        "Avengers: Endgame"
+      ],
+      "id": 37
+    },
+    {
+      "name": "Heimdall",
+      "realName": "Heimdall",
+      "species": "human",
+      "citizenship": "Asgardian",
+      "gender": "male",
+      "deathDay": "2018",
+      "status": "alive",
+      "actors": "Idris Elba",
+      "photo": "dbimage/Thor_Ragnarok_Textless_Character_Posters_07.jpg",
+      "movies": [
+        "Thor",
+        "Thor: The Dark World",
+        "Thor: Ragnarok",
+        "Avengers: Infinity War"
+      ],
+      "id": 38
+    },
+    {
+      "name": "Hawkeye",
+      "realName": "Clinton Francis Barton",
+      "species": "human",
+      "citizenship": "American",
+      "gender": "male",
+      "status": "alive",
+      "actors": "Jeremy Renner",
+      "photo": "dbimage/HawkeyeRonin-EndgameProfile.jpg",
+      "movies": [
+        "Thor",
+        "The Avengers",
+        "Avengers: Age of Ultron",
+        "Captain America: Civil War",
+        "Avengers: Endgame"
+      ],
+      "id": 39
+    },
+    {
+      "name": "Hela",
+      "realName": "Hela Odinsdottir",
+      "species": "Asgardian",
+      "citizenship": "Asgardian",
+      "gender": "female",
+      "deathDay": "2017",
+      "status": "deceased",
+      "actors": "Cate Blanchett",
+      "photo": "dbimage/Thor_Ragnarok_Textless_Character_Posters_01.jpg",
+      "movies": [
+        "Thor: Ragnarok"
+      ],
+      "id": 40
+    },
+    {
+      "name": "M'Baku",
+      "realName": "M'Baku",
+      "species": "human",
+      "citizenship": "Wakandan",
+      "gender": "male",
+      "status": "alive",
+      "actors": "Winston Duke",
+      "photo": "dbimage/Black_Panther_Textless_Character_Poster_11.jpg",
+      "movies": [
+        "Black Panther",
+        "Avengers: Infinity War",
+        "Avengers: Endgame"
+      ],
+      "id": 41
+    },
+    {
+      "name": "Odin",
+      "realName": "Odin Borson",
+      "species": "Asgardian",
+      "citizenship": "Asgardian",
+      "gender": "male",
+      "deathDay": "2017",
+      "status": "deceased",
+      "actors": "Anthony Hopkins",
+      "photo": "dbimage/Thor_Ragnarok_Textless_Character_Posters_08.jpg",
+      "movies": [
+        "Thor",
+        "Thor: The Dark World",
+        "Thor: Ragnarok "
+      ],
+      "id": 42
+    },
+    {
+      "name": "Scarlet Witch",
+      "realName": "Wanda Maximoff",
+      "species": "human",
+      "citizenship": "sokovian",
+      "gender": "female",
+      "status": "alive",
+      "actors": "Elizabeth Olsen",
+      "photo": "dbimage/Scarlet_Witch_AIW_Profile.jpg",
+      "movies": [
+        "Avengers: Age of Ultron",
+        "Captain America: Civil War",
+        "Avengers: Infinity War",
+        "Avengers: Endgame"
+      ],
+      "id": 43
+    },
+    {
+      "name": "Sif",
+      "realName": "Sif",
+      "species": "Asgardian",
+      "citizenship": "Asgardian",
+      "gender": "female",
+      "status": "alive",
+      "actors": "Jaimie Alexander",
+      "photo": "dbimage/Sifwhoyoureallyare.jpg",
+      "movies": [
+        "Thor",
+        "Thor: The Dark World"
+      ],
+      "id": 44
+    },
+    {
+      "name": "Shuri",
+      "realName": "Shuri",
+      "species": "human",
+      "citizenship": "Wakandan",
+      "gender": "female",
+      "status": "alive",
+      "actors": "Letitia Wright",
+      "photo": "dbimage/Shuri_AIW_Profile.jpg",
+      "movies": [
+        "Black Panther",
+        "Avengers: Infinity War",
+        "Avengers: Endgame"
+      ],
+      "id": 45
+    },
+    {
+      "name": "Thanos",
+      "realName": "Thanos",
+      "species": "Titan",
+      "gender": "male",
+      "birthDay": "1013",
+      "deathDay": "2018",
+      "status": "deceased",
+      "actors": "Josh Brolin",
+      "photo": "dbimage/97d1d9f934a350cee765c5ac1a466605.jpg",
+      "movies": [
+        "Guardians of the Galaxy",
+        "Guardians of the Galaxy Vol. 2",
+        "Avengers: Infinity War",
+        "Avengers: Endgame"
+      ],
+      "id": 46
+    },
+    {
+      "name": "Wasp",
+      "realName": "Hope van Dyne",
+      "species": "human",
+      "citizenship": "American",
+      "gender": "female",
+      "birthDay": "1980",
+      "status": "alive",
+      "actors": "Evangeline Lilly",
+      "photo": "dbimage/Textless_AMATW_Character_Posters_02.jpg",
+      "movies": [
+        "Ant-Man",
+        "Ant-Man and the Wasp",
+        "Avengers: Endgame"
+      ],
+      "id": 47
     },
     {
       "name": "War Machine",
@@ -648,19 +799,8 @@
         "Captain America: Civil War",
         "Avengers: Infinity War",
         "Avengers: Endgame"
-      ]
-    },
-    {
-      "name": "Wasp",
-      "realName": "Hope van Dyne",
-      "species": "human",
-      "citizenship": "American",
-      "gender": "female",
-      "birthDay": "1980",
-      "status": "alive",
-      "actors": "Evangeline Lilly",
-      "photo": "dbimage/Textless_AMATW_Character_Posters_02.jpg",
-      "movies": ["Ant-Man", "Ant-Man and the Wasp", "Avengers: Endgame"]
+      ],
+      "id": 48
     },
     {
       "name": "Winter Soldier",
@@ -678,29 +818,8 @@
         "Captain America: Civil War",
         "Avengers: Infinity War",
         "Avengers: Endgame"
-      ]
-    },
-    {
-      "name": "Wong",
-      "realName": "Wong",
-      "species": "human",
-      "citizenship": "Chinese",
-      "gender": "male",
-      "status": "alive",
-      "actors": "Benedict Wong",
-      "photo": "dbimage/Wong_AIW_Profile.jpg",
-      "movies": ["Doctor Strange", "Avengers: Infinity War", "Avengers: Endgame"]
-    },
-    {
-      "name": "Yondu Udonta",
-      "realName": "Yondu Udonta",
-      "species": "Centaurian",
-      "gender": "male",
-      "deathDay": "2014",
-      "status": "deceased",
-      "actors": "Michael Rooker",
-      "photo": "dbimage/Yondu_Profile%281%29.png",
-      "movies": ["Guardians of the Galaxy", "Guardians of the Galaxy Vol. 2"]
+      ],
+      "id": 49
     }
   ]
 }

@@ -15,7 +15,7 @@ export class MetricsModel extends EventEmitter {
   setMoviesList(moviesList) {
     this._metricsList.movies = moviesList;
 
-    mainDB.changeMovies(this._metricsList.name, {
+    mainDB.changeMovies(this._metricsList.id, {
       movies: this._metricsList.movies,
     });
   }

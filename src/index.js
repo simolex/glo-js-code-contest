@@ -16,8 +16,7 @@ import { MetricsView } from "./modules/views/MetricsView";
 
 let filterGroups = {};
 
-window.mainDB = new heroesDB("http://localhost:4545");
-
+window.mainDB = new heroesDB("http://localhost:4545/heroes/");
 //mainModel;
 mainDB.getData().then((data) => {
   data.forEach((heroes) => {

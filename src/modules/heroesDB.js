@@ -1,6 +1,6 @@
 export class heroesDB {
   constructor(baseUrl) {
-    this._baseUrl = new URL("/heroes/", baseUrl).href;
+    this._baseUrl = new URL("./", baseUrl).href;
     //this._dbPath = dbPath;
     this._moviesTitle = document.querySelector(".heroes__title");
     this._mode = false; //"readonly" "readwrite"
@@ -9,6 +9,11 @@ export class heroesDB {
     });
   }
   _getURL(id = "", options = {}) {
+    // if (id !== "") {
+    //   options = { name: id, ...options };
+    //   id = "";
+    // }
+    //
     const url = new URL(`./${id}`, this._baseUrl);
     for (let nameOption in options) {
       url.searchParams.append(nameOption, options[nameOption]);
@@ -36,7 +41,7 @@ export class heroesDB {
     const fetchOptions = {
       method: method,
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json; charset=utf-8",
       },
     };
     if (data) {
@@ -69,11 +74,16 @@ export class heroesDB {
     });
   }
 
+  addHero(user) {
+    return this._setData({ method: "POST", data: user });
+  }
+
   changeMovies(id, moviesList) {
     console.log({
       action: fetch,
       id,
       patch: moviesList,
     });
+    return this._setData({ id: id, method: "PATCH", data: moviesList });
   }
 }
