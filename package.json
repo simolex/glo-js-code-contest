@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --mode=production",
     "watch": "webpack --watch --mode=development",
-    "start": "webpack serve --mode=development --open"
+    "start": "webpack serve --mode=development --open",
+    "server": "json-server --watch db/dbHeroes.json --port=4545"
   },
   "repository": {
     "type": "git",

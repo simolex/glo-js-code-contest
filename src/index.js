@@ -16,7 +16,7 @@ import { MetricsView } from "./modules/views/MetricsView";
 
 let filterGroups = {};
 
-window.mainDB = new heroesDB("./db/dbHeroes.json");
+window.mainDB = new heroesDB("http://localhost:4545");
 
 //mainModel;
 mainDB.getData().then((data) => {
@@ -77,7 +77,9 @@ mainDB.getData().then((data) => {
   });
   const controllerMetrics = new MetricsController(modelMetrics, viewMetrics);
   modelHeroes.subscribe("heroSelected", (heroMetrics) => modelMetrics.setMetrics(heroMetrics));
-  modelMetrics.subscribe("metricsSetted", (heroMetrics) => modelMovies.setShareList(heroMetrics.movies));
+  modelMetrics.subscribe("metricsSetted", (heroMetrics) =>
+    modelMovies.setShareList(heroMetrics.movies)
+  );
   modelMovies.subscribe("shareListChanged", (moviesList) => modelMetrics.setMoviesList(moviesList));
   //-------------------
   viewMovies.show();
