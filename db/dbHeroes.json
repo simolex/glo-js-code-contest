@@ -11,7 +11,8 @@
       "photo": "dbimage/DS_Ancient_One_Poster_cropped.png",
       "movies": [
         "Doctor Strange",
-        "Avengers: Endgame"
+        "Avengers: Endgame",
+        "Avengers: Infinity War"
       ],
       "id": 1
     },
@@ -28,7 +29,10 @@
         "Ant-Man",
         "Captain America: Civil War",
         "Ant-Man and the Wasp",
-        "Avengers: Endgame"
+        "Avengers: Endgame",
+        "Ant-Man",
+        "Avengers: Age of Ultron",
+        "Avengers: Age of Ultron"
       ],
       "id": 2
     },

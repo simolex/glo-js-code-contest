@@ -1,4 +1,5 @@
 import { EventEmitter } from "../EventEmitter";
+import { createCheckBoxElement } from "../helpers";
 
 export class ListMoviesView extends EventEmitter {
   constructor(model, elements) {
@@ -27,7 +28,10 @@ export class ListMoviesView extends EventEmitter {
     this._elements.heroesMovies.addEventListener(
       "mouseenter",
       (e) => {
-        this.emit("mouseEnterMovie", this._moviesElements.indexOf(e.target.closest(".heroes__movie-item")));
+        this.emit(
+          "mouseEnterMovie",
+          this._moviesElements.indexOf(e.target.closest(".heroes__movie-item"))
+        );
       },
       true
     );
@@ -65,12 +69,9 @@ export class ListMoviesView extends EventEmitter {
     this._model.getMovies().forEach((movie, index) => {
       const option = document.createElement("li");
       option.classList.add("heroes__movie-item");
-      const viewEditBlock = document.createElement("span");
-      viewEditBlock.classList.add("movie-edit");
+      const { editBlock, viewEditBlock } = createCheckBoxElement();
       if (mainDB.isEditable()) {
-        const editBlock = document.createElement("input");
-        editBlock.type = "checkbox";
-        editBlock.classList.add("movie-edit__change");
+        viewEditBlock.classList.add("movie-edit__change");
         editBlock.name = `movie-${index}`;
         editBlock.id = `movie-${index}`;
         if (this._model.hasShare(movie)) {
@@ -78,7 +79,6 @@ export class ListMoviesView extends EventEmitter {
         } else {
           editBlock.checked = false;
         }
-        viewEditBlock.append(editBlock);
       } else {
         if (this._model.hasShare(movie)) {
           option.classList.add(this._elements.classShare);
