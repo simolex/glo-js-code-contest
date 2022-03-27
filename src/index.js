@@ -1,19 +1,13 @@
 import { heroesDB } from "./modules/heroesDB";
 import Swiper, { Navigation, Lazy } from "swiper";
 //--------------------
-<<<<<<< HEAD
 import { HeaderController } from "./modules/controllers/HeaderController";
 import { HeaderModel } from "./modules/controllers/HeaderModel";
 import { HeaderView } from "./modules/controllers/HeaderView";
 //--------------------
-import { ListMoviesController } from "./modules/controllers/ListMoviesController";
-import { ListMoviesModel } from "./modules/models/ListMoviesModel";
-import { ListMoviesView } from "./modules/views/ListMoviesView";
-=======
 import { MoviesListController } from "./modules/controllers/MoviesListController";
 import { MoviesListModel } from "./modules/models/MoviesListModel";
 import { MoviesListView } from "./modules/views/MoviesListView";
->>>>>>> dev
 //--------------------
 import { HeroesListController } from "./modules/controllers/HeroesListController";
 import { HeroesListModel } from "./modules/models/HeroesListModel";
