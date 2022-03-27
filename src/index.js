@@ -1,9 +1,13 @@
 import { heroesDB } from "./modules/heroesDB";
 import Swiper, { Navigation, Lazy } from "swiper";
 //--------------------
-import { ListMoviesController } from "./modules/controllers/ListMoviesController";
-import { ListMoviesModel } from "./modules/models/ListMoviesModel";
-import { ListMoviesView } from "./modules/views/ListMoviesView";
+import { HeaderController } from "./modules/controllers/HeaderController";
+import { HeaderModel } from "./modules/models/HeaderModel";
+import { HeaderView } from "./modules/views/HeaderView";
+//--------------------
+import { MoviesListController } from "./modules/controllers/MoviesListController";
+import { MoviesListModel } from "./modules/models/MoviesListModel";
+import { MoviesListView } from "./modules/views/MoviesListView";
 //--------------------
 import { HeroesListController } from "./modules/controllers/HeroesListController";
 import { HeroesListModel } from "./modules/models/HeroesListModel";
@@ -39,16 +43,28 @@ mainDB.getData().then((data) => {
     }
   });
 
-  const modelMovies = new ListMoviesModel(filterGroups.movies.sort());
-  const viewMovies = new ListMoviesView(modelMovies, {
-    heroesMovies: document.getElementById("heroes_movies"),
+  const modelHeader = new HeaderModel();
+  const viewHeader = new HeaderView(modelHeader, {
     moviesTitle: document.querySelector(".heroes__title"),
+    checkModeWrittable: document.getElementById("mode"),
+  });
+  const controllerHeader = new HeaderController(modelHeader, viewHeader);
+  //-------------------
+  const modelMovies = new MoviesListModel(filterGroups.movies.sort());
+  const viewMovies = new MoviesListView(modelMovies, {
+    heroesMovies: document.getElementById("heroes_movies"),
+    //moviesTitle: document.querySelector(".heroes__title"),
     classHighlight: "heroes__movie-item--selected",
     classActive: "heroes__movie-item--active",
     classShare: "heroes__movie-item--share",
   });
-  const controllerMovies = new ListMoviesController(modelMovies, viewMovies);
+  const controllerMovies = new MoviesListController(modelMovies, viewMovies);
 
+  modelMovies.subscribe("movieSelected", (title) => (modelHeader.title = title));
+  modelHeader.subscribe("modeChanged", (mode) => {
+    modelMovies.isEditable = mode;
+    viewMovies.rebuildList();
+  });
   //-------------------
   const modelHeroes = new HeroesListModel();
   const viewHeroes = new HeroesListView(modelHeroes, {
@@ -76,9 +92,7 @@ mainDB.getData().then((data) => {
   });
   const controllerMetrics = new MetricsController(modelMetrics, viewMetrics);
   modelHeroes.subscribe("heroSelected", (heroMetrics) => modelMetrics.setMetrics(heroMetrics));
-  modelMetrics.subscribe("metricsSetted", (heroMetrics) =>
-    modelMovies.setShareList(heroMetrics.movies)
-  );
+  modelMetrics.subscribe("metricsSetted", (heroMetrics) => modelMovies.setShareList(heroMetrics.movies));
   modelMovies.subscribe("shareListChanged", (moviesList) => modelMetrics.setMoviesList(moviesList));
   //-------------------
   viewMovies.show();

@@ -1,7 +1,7 @@
 import { EventEmitter } from "../EventEmitter";
 import { createCheckBoxElement } from "../helpers";
 
-export class ListMoviesView extends EventEmitter {
+export class MoviesListView extends EventEmitter {
   constructor(model, elements) {
     super();
     this._model = model;
@@ -28,10 +28,7 @@ export class ListMoviesView extends EventEmitter {
     this._elements.heroesMovies.addEventListener(
       "mouseenter",
       (e) => {
-        this.emit(
-          "mouseEnterMovie",
-          this._moviesElements.indexOf(e.target.closest(".heroes__movie-item"))
-        );
+        this.emit("mouseEnterMovie", this._moviesElements.indexOf(e.target.closest(".heroes__movie-item")));
       },
       true
     );
@@ -39,10 +36,6 @@ export class ListMoviesView extends EventEmitter {
     this._elements.heroesMovies.addEventListener("mouseleave", () => {
       this.emit("mouseLeaveMovie");
     });
-  }
-  //Заголовок должен жить в другой структуре, но пока здесь.
-  setTitle(nameMovie) {
-    this._elements.moviesTitle.textContent = nameMovie;
   }
 
   _unHighlightMovie(id) {
@@ -70,7 +63,7 @@ export class ListMoviesView extends EventEmitter {
       const option = document.createElement("li");
       option.classList.add("heroes__movie-item");
       const { editBlock, viewEditBlock } = createCheckBoxElement();
-      if (mainDB.isEditable()) {
+      if (this._model.isEditable) {
         viewEditBlock.classList.add("movie-edit__change");
         editBlock.name = `movie-${index}`;
         editBlock.id = `movie-${index}`;

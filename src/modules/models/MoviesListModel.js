@@ -1,12 +1,21 @@
 import { EventEmitter } from "../EventEmitter";
 
-export class ListMoviesModel extends EventEmitter {
+export class MoviesListModel extends EventEmitter {
   constructor(moviesList) {
     super();
     this._moviesList = moviesList || [];
     this._shareList = [];
     this._activeMovieId = 0;
     this._enteredMovie = -1;
+    this._isEditable = false;
+  }
+
+  set isEditable(isEditable) {
+    this._isEditable = isEditable;
+  }
+
+  get isEditable() {
+    return this._isEditable;
   }
 
   set enteredMovie(idMovie) {
