@@ -46,6 +46,7 @@ mainDB.getData().then((data) => {
   const modelHeader = new HeaderModel();
   const viewHeader = new HeaderView(modelHeader, {
     moviesTitle: document.querySelector(".heroes__title"),
+    checkModeWrittable: document.getElementById("mode"),
   });
   const controllerHeader = new HeaderController(modelHeader, viewHeader);
   //-------------------
@@ -60,6 +61,10 @@ mainDB.getData().then((data) => {
   const controllerMovies = new MoviesListController(modelMovies, viewMovies);
 
   modelMovies.subscribe("movieSelected", (title) => (modelHeader.title = title));
+  modelHeader.subscribe("modeChanged", (mode) => {
+    modelMovies.isEditable = mode;
+    viewMovies.rebuildList();
+  });
   //-------------------
   const modelHeroes = new HeroesListModel();
   const viewHeroes = new HeroesListView(modelHeroes, {

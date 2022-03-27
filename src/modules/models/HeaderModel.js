@@ -5,9 +5,7 @@ export class HeaderModel extends EventEmitter {
     super();
     this._title = "";
     this._modeWrittable = false; //"readonly" "readwrite"
-    document.getElementById("mode").addEventListener("change", (e) => {
-      this._modeWrittable = e.target.checked;
-    });
+    //document.getElementById("mode")
   }
 
   set title(title) {
@@ -16,5 +14,14 @@ export class HeaderModel extends EventEmitter {
   }
   get title() {
     return this._title;
+  }
+
+  get modeWrittable() {
+    return this._modeWrittable;
+  }
+
+  changeMode(mode) {
+    this._modeWrittable = mode;
+    this.emit("modeChanged", mode);
   }
 }

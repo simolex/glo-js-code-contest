@@ -63,7 +63,7 @@ export class MoviesListView extends EventEmitter {
       const option = document.createElement("li");
       option.classList.add("heroes__movie-item");
       const { editBlock, viewEditBlock } = createCheckBoxElement();
-      if (mainDB.isEditable()) {
+      if (this._model.isEditable) {
         viewEditBlock.classList.add("movie-edit__change");
         editBlock.name = `movie-${index}`;
         editBlock.id = `movie-${index}`;

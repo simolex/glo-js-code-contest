@@ -7,6 +7,15 @@ export class MoviesListModel extends EventEmitter {
     this._shareList = [];
     this._activeMovieId = 0;
     this._enteredMovie = -1;
+    this._isEditable = false;
+  }
+
+  set isEditable(isEditable) {
+    this._isEditable = isEditable;
+  }
+
+  get isEditable() {
+    return this._isEditable;
   }
 
   set enteredMovie(idMovie) {
