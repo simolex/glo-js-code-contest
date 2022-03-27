@@ -1,6 +1,6 @@
 import { EventEmitter } from "../EventEmitter";
 
-export class ListMoviesModel extends EventEmitter {
+export class MoviesListModel extends EventEmitter {
   constructor(moviesList) {
     super();
     this._moviesList = moviesList || [];

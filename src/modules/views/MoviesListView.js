@@ -1,7 +1,7 @@
 import { EventEmitter } from "../EventEmitter";
 import { createCheckBoxElement } from "../helpers";
 
-export class ListMoviesView extends EventEmitter {
+export class MoviesListView extends EventEmitter {
   constructor(model, elements) {
     super();
     this._model = model;
@@ -28,10 +28,7 @@ export class ListMoviesView extends EventEmitter {
     this._elements.heroesMovies.addEventListener(
       "mouseenter",
       (e) => {
-        this.emit(
-          "mouseEnterMovie",
-          this._moviesElements.indexOf(e.target.closest(".heroes__movie-item"))
-        );
+        this.emit("mouseEnterMovie", this._moviesElements.indexOf(e.target.closest(".heroes__movie-item")));
       },
       true
     );
