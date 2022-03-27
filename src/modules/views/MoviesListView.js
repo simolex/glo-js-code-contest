@@ -37,10 +37,6 @@ export class MoviesListView extends EventEmitter {
       this.emit("mouseLeaveMovie");
     });
   }
-  //Заголовок должен жить в другой структуре, но пока здесь.
-  setTitle(nameMovie) {
-    this._elements.moviesTitle.textContent = nameMovie;
-  }
 
   _unHighlightMovie(id) {
     this._moviesElements[id].classList.remove(this._elements.classHighlight);

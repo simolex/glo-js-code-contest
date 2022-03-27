@@ -13,7 +13,7 @@ export class MoviesListController {
   }
   selectMovie(id) {
     this._model.setActiveMovie(id);
-    this._view.setTitle(this._model.getMovieName(id));
+    //this._view.setTitle(this._model.getMovieName(id));
   }
 
   changeEnteredMovie(id) {

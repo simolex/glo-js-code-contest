@@ -2,8 +2,8 @@ import { heroesDB } from "./modules/heroesDB";
 import Swiper, { Navigation, Lazy } from "swiper";
 //--------------------
 import { HeaderController } from "./modules/controllers/HeaderController";
-import { HeaderModel } from "./modules/controllers/HeaderModel";
-import { HeaderView } from "./modules/controllers/HeaderView";
+import { HeaderModel } from "./modules/models/HeaderModel";
+import { HeaderView } from "./modules/views/HeaderView";
 //--------------------
 import { MoviesListController } from "./modules/controllers/MoviesListController";
 import { MoviesListModel } from "./modules/models/MoviesListModel";
@@ -43,26 +43,23 @@ mainDB.getData().then((data) => {
     }
   });
 
-  const modelHeader = new HeaderModel(filterGroups.movies.sort());
+  const modelHeader = new HeaderModel();
   const viewHeader = new HeaderView(modelHeader, {
-    heroesMovies: document.getElementById("heroes_movies"),
     moviesTitle: document.querySelector(".heroes__title"),
-    classHighlight: "heroes__movie-item--selected",
-    classActive: "heroes__movie-item--active",
-    classShare: "heroes__movie-item--share",
   });
   const controllerHeader = new HeaderController(modelHeader, viewHeader);
   //-------------------
   const modelMovies = new MoviesListModel(filterGroups.movies.sort());
   const viewMovies = new MoviesListView(modelMovies, {
     heroesMovies: document.getElementById("heroes_movies"),
-    moviesTitle: document.querySelector(".heroes__title"),
+    //moviesTitle: document.querySelector(".heroes__title"),
     classHighlight: "heroes__movie-item--selected",
     classActive: "heroes__movie-item--active",
     classShare: "heroes__movie-item--share",
   });
   const controllerMovies = new MoviesListController(modelMovies, viewMovies);
 
+  modelMovies.subscribe("movieSelected", (title) => (modelHeader.title = title));
   //-------------------
   const modelHeroes = new HeroesListModel();
   const viewHeroes = new HeroesListView(modelHeroes, {
