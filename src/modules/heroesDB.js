@@ -5,11 +5,6 @@ export class heroesDB {
     this._moviesTitle = document.querySelector(".heroes__title");
   }
   _getURL(id = "", options = {}) {
-    // if (id !== "") {
-    //   options = { name: id, ...options };
-    //   id = "";
-    // }
-    //
     const url = new URL(`./${id}`, this._baseUrl);
     for (let nameOption in options) {
       url.searchParams.append(nameOption, options[nameOption]);

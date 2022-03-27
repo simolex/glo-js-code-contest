@@ -1,6 +1,10 @@
 import { heroesDB } from "./modules/heroesDB";
 import Swiper, { Navigation, Lazy } from "swiper";
 //--------------------
+import { HeaderController } from "./modules/controllers/HeaderController";
+import { HeaderModel } from "./modules/controllers/HeaderModel";
+import { HeaderView } from "./modules/controllers/HeaderView";
+//--------------------
 import { ListMoviesController } from "./modules/controllers/ListMoviesController";
 import { ListMoviesModel } from "./modules/models/ListMoviesModel";
 import { ListMoviesView } from "./modules/views/ListMoviesView";
@@ -39,6 +43,16 @@ mainDB.getData().then((data) => {
     }
   });
 
+  const modelHeader = new HeaderModel(filterGroups.movies.sort());
+  const viewHeader = new HeaderView(modelHeader, {
+    heroesMovies: document.getElementById("heroes_movies"),
+    moviesTitle: document.querySelector(".heroes__title"),
+    classHighlight: "heroes__movie-item--selected",
+    classActive: "heroes__movie-item--active",
+    classShare: "heroes__movie-item--share",
+  });
+  const controllerHeader = new HeaderController(modelHeader, viewHeader);
+  //-------------------
   const modelMovies = new ListMoviesModel(filterGroups.movies.sort());
   const viewMovies = new ListMoviesView(modelMovies, {
     heroesMovies: document.getElementById("heroes_movies"),
@@ -76,9 +90,7 @@ mainDB.getData().then((data) => {
   });
   const controllerMetrics = new MetricsController(modelMetrics, viewMetrics);
   modelHeroes.subscribe("heroSelected", (heroMetrics) => modelMetrics.setMetrics(heroMetrics));
-  modelMetrics.subscribe("metricsSetted", (heroMetrics) =>
-    modelMovies.setShareList(heroMetrics.movies)
-  );
+  modelMetrics.subscribe("metricsSetted", (heroMetrics) => modelMovies.setShareList(heroMetrics.movies));
   modelMovies.subscribe("shareListChanged", (moviesList) => modelMetrics.setMoviesList(moviesList));
   //-------------------
   viewMovies.show();
