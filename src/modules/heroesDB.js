@@ -70,11 +70,11 @@ export class heroesDB {
   }
 
   changeMovies(id, moviesList) {
-    console.log({
-      action: fetch,
-      id,
-      patch: moviesList,
-    });
+    // console.log({
+    //   action: fetch,
+    //   id,
+    //   patch: moviesList,
+    // });
     return this._setData({ id: id, method: "PATCH", data: moviesList });
   }
 }
