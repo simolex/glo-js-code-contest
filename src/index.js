@@ -1,5 +1,8 @@
 import { heroesDB } from "./modules/heroesDB";
+import "./css/style.css";
+
 import Swiper, { Navigation, Lazy } from "swiper";
+
 //--------------------
 import { HeaderController } from "./modules/controllers/HeaderController";
 import { HeaderModel } from "./modules/models/HeaderModel";
